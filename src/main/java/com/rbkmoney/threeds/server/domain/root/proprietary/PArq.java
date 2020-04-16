@@ -88,9 +88,7 @@ public class PArq extends Message {
     private TemporalAccessorWrapper<LocalDate> recurringExpiry;
     private String recurringFrequency;
     private String sdkAppID;
-    //TODO тут короче надо разбираться с шифрованием для приложения (возможно нам не надо)
     private String sdkEncData;
-    //TODO тут короче надо разбираться с шифрованием для приложения (возможно нам не надо)
     private Map<String, String> sdkEphemPubKey;
     private String sdkReferenceNumber;
     @ToString.Include

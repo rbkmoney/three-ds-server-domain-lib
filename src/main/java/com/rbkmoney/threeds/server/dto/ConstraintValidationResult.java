@@ -1,10 +1,13 @@
 package com.rbkmoney.threeds.server.dto;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ConstraintValidationResult {
 
     private boolean isValid;
@@ -12,9 +15,6 @@ public class ConstraintValidationResult {
     private ConstraintType constraintType;
 
     private String fieldName;
-
-    private ConstraintValidationResult() {
-    }
 
     public static ConstraintValidationResult success() {
         ConstraintValidationResult constraintValidationResult = new ConstraintValidationResult();
