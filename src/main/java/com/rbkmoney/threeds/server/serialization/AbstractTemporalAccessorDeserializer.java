@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.node.TextNode;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
+import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
@@ -31,11 +32,17 @@ public abstract class AbstractTemporalAccessorDeserializer<T extends TemporalAcc
             TextNode textNode = (TextNode) node;
             String candidate = textNode.asText();
 
-            T temporalAccessor = parse(candidate, DateTimeFormatter.ofPattern(pattern));
+            try {
+                T temporalAccessor = parse(candidate, DateTimeFormatter.ofPattern(pattern));
 
-            TemporalAccessorWrapper<T> temporalAccessorWrapper = new TemporalAccessorWrapper<>();
-            temporalAccessorWrapper.setValue(temporalAccessor);
-            return temporalAccessorWrapper;
+                TemporalAccessorWrapper<T> temporalAccessorWrapper = new TemporalAccessorWrapper<>();
+                temporalAccessorWrapper.setValue(temporalAccessor);
+                return temporalAccessorWrapper;
+            } catch (DateTimeException ex) {
+                TemporalAccessorWrapper<T> temporalAccessorWrapper = new TemporalAccessorWrapper<>();
+                temporalAccessorWrapper.setGarbageValue(candidate);
+                return temporalAccessorWrapper;
+            }
         } else {
             TemporalAccessorWrapper<T> temporalAccessorWrapper = new TemporalAccessorWrapper<>();
             temporalAccessorWrapper.setGarbageValue(oc.treeToValue(node, Object.class));
