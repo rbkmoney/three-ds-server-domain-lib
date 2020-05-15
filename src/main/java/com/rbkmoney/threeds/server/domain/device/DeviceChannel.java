@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.rbkmoney.threeds.server.domain.Valuable;
 import lombok.RequiredArgsConstructor;
 
+import static java.util.Arrays.stream;
+
 /**
  * Device Channel
  * Indicates the type of channel interface being
@@ -28,5 +30,12 @@ public enum DeviceChannel implements Valuable {
     @Override
     public String getValue() {
         return value;
+    }
+
+    public static DeviceChannel of(String value) {
+        return stream(DeviceChannel.values())
+                .filter(d -> d.getValue().equals(value))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Unknown value: " + value));
     }
 }
