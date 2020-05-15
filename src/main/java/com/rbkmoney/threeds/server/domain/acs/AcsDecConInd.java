@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.rbkmoney.threeds.server.domain.Valuable;
 import lombok.RequiredArgsConstructor;
 
+import static java.util.Arrays.stream;
+
 /**
  * ACS Decoupled Confirmation Indicator
  * Indicates whether the ACS confirms utilisation of Decoupled Authentication
@@ -26,5 +28,12 @@ public enum AcsDecConInd implements Valuable {
     @Override
     public String getValue() {
         return value;
+    }
+
+    public static AcsDecConInd of(String value) {
+        return stream(AcsDecConInd.values())
+                .filter(a -> a.getValue().equals(value))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Unknown value: " + value));
     }
 }
