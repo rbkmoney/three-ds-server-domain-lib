@@ -1,28 +1,21 @@
-package com.rbkmoney.threeds.server.domain.threedsrequestor;
+package com.rbkmoney.threeds.server.domain.acs;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.rbkmoney.threeds.server.domain.Valuable;
 import lombok.RequiredArgsConstructor;
 
-/**
- * 3DS Requestor Prior Transaction Authentication Method
- * <p>
- * Mechanism used by the Cardholder to previously authenticate to the 3DS Requestor.
- * <p>
- * Length: 2 characters
- * <p>
- * JSON Data Type: String
- */
 @RequiredArgsConstructor
-public enum ThreeDSReqPriorAuthMethod implements Valuable {
+public enum AcsUiType implements Valuable {
 
-    FRICTIONLESS_AUTH_OCCURED("01"),
+    TEXT("01"),
 
-    CARDHOLDER_CHALLENGE_OCCURED("02"),
+    SINGLE_SELECT("02"),
 
-    AVS_VERIFIED("03"),
+    MULTI_SELECT("03"),
 
-    OTHER_METHODS("04"),
+    OOB("04"),
+
+    HTML("05"),
 
     RESERVED_FOR_DS_USED_80("80"),
     RESERVED_FOR_DS_USED_81("81"),
