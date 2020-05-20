@@ -52,6 +52,10 @@ public enum MessageType implements Valuable {
 
     PSRS("pSrs"),
 
+    RBKMONEY_PREPARATION_REQUEST("RBKMONEY_PREPARATION_REQUEST"),
+
+    RBKMONEY_PREPARATION_RESPONSE("RBKMONEY_PREPARATION_RESPONSE"),
+
     UNKN("Unkn");
 
     private final String value;
