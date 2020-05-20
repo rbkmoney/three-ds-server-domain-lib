@@ -15,4 +15,5 @@ public class RBKMoneyPreparationRequest extends Message {
 
     private String providerId;
     private String serialNum;
+
 }

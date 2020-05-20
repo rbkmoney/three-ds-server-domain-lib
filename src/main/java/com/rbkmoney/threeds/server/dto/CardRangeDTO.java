@@ -12,4 +12,5 @@ public class CardRangeDTO {
 
     private String startRange;
     private String endRange;
+
 }

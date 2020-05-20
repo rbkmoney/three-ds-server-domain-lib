@@ -21,4 +21,5 @@ public class RBKMoneyPreparationResponse extends Message {
     private List<CardRangeDTO> addedCardRanges;
     private List<CardRangeDTO> modifiedCardRanges;
     private List<CardRangeDTO> deletedCardRanges;
+
 }
