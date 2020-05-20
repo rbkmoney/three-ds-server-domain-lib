@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.rbkmoney.threeds.server.domain.root.emvco.*;
 import com.rbkmoney.threeds.server.domain.root.proprietary.*;
+import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyPreparationRequest;
+import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyPreparationResponse;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.lang.Nullable;
@@ -29,6 +31,9 @@ import org.springframework.lang.Nullable;
         @JsonSubTypes.Type(value = PGcs.class, name = "pGcs"),
         @JsonSubTypes.Type(value = PPrq.class, name = "pPrq"),
         @JsonSubTypes.Type(value = PPrs.class, name = "pPrs"),
+
+        @JsonSubTypes.Type(value = RBKMoneyPreparationRequest.class, name = "RBKMONEY_PREPARATION_REQUEST"),
+        @JsonSubTypes.Type(value = RBKMoneyPreparationResponse.class, name = "RBKMONEY_PREPARATION_RESPONSE")
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
