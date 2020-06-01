@@ -25,6 +25,6 @@ public class MessageExtension {
     private String name;
     private String id;
     private Boolean criticalityIndicator;
-    private Map<String, String> data;
+    private Map<String, Object> data;
 
 }
