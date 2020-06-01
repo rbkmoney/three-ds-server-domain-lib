@@ -9,18 +9,19 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.rbkmoney.threeds.server.domain.CardRange;
 import com.rbkmoney.threeds.server.domain.account.AccountType;
 import com.rbkmoney.threeds.server.domain.acs.AcsInfoInd;
-import com.rbkmoney.threeds.server.serialization.deserializer.AccountTypeDeserializer;
-import com.rbkmoney.threeds.server.serialization.deserializer.AcsInfoIndDeserializer;
-import com.rbkmoney.threeds.server.serialization.deserializer.CardRangeDataDeserializer;
-import com.rbkmoney.threeds.server.serialization.deserializer.LocalDateDeserializer;
+import com.rbkmoney.threeds.server.domain.message.MessageExtension;
+import com.rbkmoney.threeds.server.serialization.deserializer.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 public class SerializationTest {
 
@@ -36,7 +37,7 @@ public class SerializationTest {
 
         String serialized = mapper.writeValueAsString(item);
         AccountType accountType = mapper.readValue(serialized, Item.class).getAcctType().getValue();
-        Assert.assertEquals(actual, accountType);
+        assertEquals(actual, accountType);
     }
 
     @Test
@@ -46,7 +47,7 @@ public class SerializationTest {
         ObjectMapper mapper = new ObjectMapper();
 
         Object value = mapper.readValue("{\"acctType\":\"" + actualValue + "\"}", Item.class).getAcctType().getValue().getValue();
-        Assert.assertEquals(actualValue, value);
+        assertEquals(actualValue, value);
     }
 
     @Test
@@ -54,7 +55,7 @@ public class SerializationTest {
         ObjectMapper mapper = new ObjectMapper();
 
         Object value = mapper.readValue("{\"acctType\":\"" + ACTUAL_GARBAGE_VALUE + "\"}", Item.class).getAcctType().getGarbageValue();
-        Assert.assertEquals(ACTUAL_GARBAGE_VALUE, value);
+        assertEquals(ACTUAL_GARBAGE_VALUE, value);
     }
 
     @Test
@@ -91,7 +92,7 @@ public class SerializationTest {
                 .getValue()
                 .get(0);
 
-        Assert.assertEquals(actualEndRange, cardRange.getEndRange());
+        assertEquals(actualEndRange, cardRange.getEndRange());
     }
 
     @Test
@@ -99,7 +100,7 @@ public class SerializationTest {
         ObjectMapper mapper = new ObjectMapper();
 
         Object value = mapper.readValue("{\"cardRangeData\":\"" + ACTUAL_GARBAGE_VALUE + "\"}", Item.class).getCardRangeData().getGarbageValue();
-        Assert.assertEquals(ACTUAL_GARBAGE_VALUE, value);
+        assertEquals(ACTUAL_GARBAGE_VALUE, value);
     }
 
     @Test
@@ -123,7 +124,7 @@ public class SerializationTest {
                 .get(0)
                 .getValue();
 
-        Assert.assertEquals(actual, acsInfoInd.getValue());
+        assertEquals(actual, acsInfoInd.getValue());
     }
 
     @Test
@@ -131,7 +132,7 @@ public class SerializationTest {
         ObjectMapper mapper = new ObjectMapper();
 
         Object value = mapper.readValue("{\"acsInfoInd\":\"" + ACTUAL_GARBAGE_VALUE + "\"}", Item.class).getAcsInfoInd().getGarbageValue();
-        Assert.assertEquals(ACTUAL_GARBAGE_VALUE, value);
+        assertEquals(ACTUAL_GARBAGE_VALUE, value);
     }
 
     @Test
@@ -141,7 +142,7 @@ public class SerializationTest {
         ObjectMapper mapper = new ObjectMapper();
 
         Object value = mapper.readValue("{\"chAccChange\": \"" + actualValue + "\"}", Item.class).getChAccChange().getValue().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-        Assert.assertEquals(actualValue, value);
+        assertEquals(actualValue, value);
     }
 
     @Test
@@ -149,7 +150,65 @@ public class SerializationTest {
         ObjectMapper mapper = new ObjectMapper();
 
         Object value = mapper.readValue("{\"chAccChange\":\"" + ACTUAL_GARBAGE_VALUE + "\"}", Item.class).getChAccChange().getGarbageValue();
-        Assert.assertEquals(ACTUAL_GARBAGE_VALUE, value);
+        assertEquals(ACTUAL_GARBAGE_VALUE, value);
+    }
+
+    @Test
+    public void messageExtensionDeserializeTest() throws IOException {
+        String actualTotalScore = "-200";
+        String actualScore = "-300";
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        Map<String, Object> data = mapper.readValue("{\n" +
+                        "    \"messageExtension\": [\n" +
+                        "        {\n" +
+                        "            \"criticalityIndicator\": false,\n" +
+                        "            \"id\": \"A00000065801\",\n" +
+                        "            \"name\": \"rbaScoring\",\n" +
+                        "            \"data\": {\n" +
+                        "                \"totalScore\":" + actualTotalScore + ",\n" +
+                        "                \"ruleSets\": [\n" +
+                        "                    {\n" +
+                        "                        \"ruleSetId\": 2001,\n" +
+                        "                        \"score\": " + actualScore + ",\n" +
+                        "                        \"description\": \"Test Score\"\n" +
+                        "                    }\n" +
+                        "                ]\n" +
+                        "            }\n" +
+                        "        }\n" +
+                        "    ]}",
+                Item.class
+        )
+                .getMessageExtension()
+                .getValue()
+                .get(0)
+                .getData();
+
+        assertEquals(actualTotalScore, String.valueOf(data.get("totalScore")));
+        assertEquals(actualScore, String.valueOf(((List<Map<String, Object>>) data.get("ruleSets")).get(0).get("score")));
+
+        String value = "value";
+        data = mapper.readValue("{" +
+                        "\"messageExtension\": [\n" +
+                        "                            {\n" +
+                        "                                \"name\": \"testExtensionNonCriticalField\",\n" +
+                        "                                \"id\": \"ID3\",\n" +
+                        "                                \"criticalityIndicator\": false,\n" +
+                        "                                \"data\": {\n" +
+                        "                                    \"valueOne\": \"" + value + "\"\n" +
+                        "                                }\n" +
+                        "                            }\n" +
+                        "                        ]" +
+                        "}",
+                Item.class
+        )
+                .getMessageExtension()
+                .getValue()
+                .get(0)
+                .getData();
+
+        assertEquals(value, String.valueOf(data.get("valueOne")));
     }
 
     private Item createItem(AccountType actual) {
@@ -190,6 +249,8 @@ public class SerializationTest {
         private ListWrapper<EnumWrapper<AcsInfoInd>> acsInfoInd;
         @JsonDeserialize(using = LocalDateDeserializer.class)
         private TemporalAccessorWrapper<LocalDate> chAccChange;
+        @JsonDeserialize(using = MessageExtensionDeserializer.class)
+        private ListWrapper<MessageExtension> messageExtension;
 
     }
 }
