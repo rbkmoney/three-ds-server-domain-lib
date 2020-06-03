@@ -18,6 +18,8 @@ import java.lang.annotation.Target;
                 PGcqCustomValidator.class,
                 PPrqCustomValidator.class,
                 PResCustomValidator.class,
+                RBKMoneyGetChallengeRequestCustomValidator.class,
+                RBKMoneyPreparationRequestCustomValidator.class,
                 RReqCustomValidator.class
         }
 )
