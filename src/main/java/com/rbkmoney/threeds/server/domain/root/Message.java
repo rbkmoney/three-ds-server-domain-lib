@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.rbkmoney.threeds.server.domain.root.emvco.*;
 import com.rbkmoney.threeds.server.domain.root.proprietary.*;
+import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyGetChallengeRequest;
+import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyGetChallengeResponse;
 import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyPreparationRequest;
 import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyPreparationResponse;
 import lombok.Data;
@@ -33,7 +35,9 @@ import org.springframework.lang.Nullable;
         @JsonSubTypes.Type(value = PPrs.class, name = "pPrs"),
 
         @JsonSubTypes.Type(value = RBKMoneyPreparationRequest.class, name = "RBKMONEY_PREPARATION_REQUEST"),
-        @JsonSubTypes.Type(value = RBKMoneyPreparationResponse.class, name = "RBKMONEY_PREPARATION_RESPONSE")
+        @JsonSubTypes.Type(value = RBKMoneyPreparationResponse.class, name = "RBKMONEY_PREPARATION_RESPONSE"),
+        @JsonSubTypes.Type(value = RBKMoneyGetChallengeRequest.class, name = "RBKMONEY_GET_CHALLENGE_REQUEST"),
+        @JsonSubTypes.Type(value = RBKMoneyGetChallengeResponse.class, name = "RBKMONEY_GET_CHALLENGE_RESPONSE"),
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
