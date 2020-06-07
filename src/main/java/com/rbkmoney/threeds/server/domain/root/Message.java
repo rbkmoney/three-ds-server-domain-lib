@@ -49,7 +49,7 @@ public abstract class Message implements TransactionalMessage, RepeatableHandleM
 
     // 6.5.2 Test Case Identification (3ds.selftestplatform.com)
     @JsonIgnore
-    private String xULTestCaseRunId;
+    private String ulTestCaseId;
 
     @JsonIgnore
     @Nullable
