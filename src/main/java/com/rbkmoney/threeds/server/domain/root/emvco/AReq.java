@@ -1,9 +1,10 @@
 package com.rbkmoney.threeds.server.domain.root.emvco;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.rbkmoney.threeds.server.domain.*;
 import com.rbkmoney.threeds.server.domain.account.AccountInfo;
 import com.rbkmoney.threeds.server.domain.account.AccountType;
@@ -17,6 +18,10 @@ import com.rbkmoney.threeds.server.domain.transaction.TransactionType;
 import com.rbkmoney.threeds.server.domain.unwrapped.Address;
 import com.rbkmoney.threeds.server.domain.whitelist.WhiteListStatus;
 import com.rbkmoney.threeds.server.domain.whitelist.WhiteListStatusSource;
+import com.rbkmoney.threeds.server.serialization.deserializer.LocalDateDeserializer;
+import com.rbkmoney.threeds.server.serialization.deserializer.LocalDateTimeMinuteSecondDeserializer;
+import com.rbkmoney.threeds.server.serialization.serializer.LocalDateSerializer;
+import com.rbkmoney.threeds.server.serialization.serializer.LocalDateTimeMinuteSecondSerializer;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -115,9 +120,11 @@ public class AReq extends Message {
     private String purchaseAmount;
     private String purchaseCurrency;
     private String purchaseExponent;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMddHHmmss")
+    @JsonDeserialize(using = LocalDateTimeMinuteSecondDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeMinuteSecondSerializer.class)
     private LocalDateTime purchaseDate;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate recurringExpiry;
     private String recurringFrequency;
     private String sdkAppID;

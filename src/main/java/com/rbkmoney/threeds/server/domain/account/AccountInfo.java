@@ -1,9 +1,12 @@
 package com.rbkmoney.threeds.server.domain.account;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.rbkmoney.threeds.server.domain.ship.ShipAddressUsageInd;
 import com.rbkmoney.threeds.server.domain.ship.ShipNameIndicator;
+import com.rbkmoney.threeds.server.serialization.deserializer.LocalDateDeserializer;
+import com.rbkmoney.threeds.server.serialization.serializer.LocalDateSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,22 +28,27 @@ import java.time.LocalDate;
 public class AccountInfo {
 
     private ChAccAgeInd chAccAgeInd;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate chAccChange;
     private ChAccChangeInd chAccChangeInd;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate chAccDate;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate chAccPwChange;
     private ChAccPwChangeInd chAccPwChangeInd;
     private String nbPurchaseAccount;
     private String provisionAttemptsDay;
     private String txnActivityDay;
     private String txnActivityYear;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate paymentAccAge;
     private PaymentAccInd paymentAccInd;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate shipAddressUsage;
     private ShipAddressUsageInd shipAddressUsageInd;
     private ShipNameIndicator shipNameIndicator;

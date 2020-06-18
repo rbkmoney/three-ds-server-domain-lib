@@ -2,6 +2,7 @@ package com.rbkmoney.threeds.server.domain.root.emvco;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.rbkmoney.threeds.server.constraint.CustomValidation;
 import com.rbkmoney.threeds.server.domain.CardRange;
 import com.rbkmoney.threeds.server.domain.message.MessageExtension;
@@ -9,6 +10,8 @@ import com.rbkmoney.threeds.server.domain.root.Message;
 import com.rbkmoney.threeds.server.serialization.ListWrapper;
 import com.rbkmoney.threeds.server.serialization.deserializer.CardRangeDataDeserializer;
 import com.rbkmoney.threeds.server.serialization.deserializer.MessageExtensionDeserializer;
+import com.rbkmoney.threeds.server.serialization.serializer.CardRangeDataSerializer;
+import com.rbkmoney.threeds.server.serialization.serializer.MessageExtensionSerializer;
 import lombok.*;
 
 @AllArgsConstructor
@@ -23,6 +26,7 @@ public class PRes extends Message {
 
     @ToString.Include
     @JsonDeserialize(using = CardRangeDataDeserializer.class)
+    @JsonSerialize(using = CardRangeDataSerializer.class)
     private ListWrapper<CardRange> cardRangeData;
     private String dsEndProtocolVersion;
     private String dsStartProtocolVersion;
@@ -31,6 +35,7 @@ public class PRes extends Message {
     @ToString.Include
     private String dsTransID;
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
+    @JsonSerialize(using = MessageExtensionSerializer.class)
     private ListWrapper<MessageExtension> messageExtension;
     @ToString.Include
     private String serialNum;

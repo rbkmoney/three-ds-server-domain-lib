@@ -1,0 +1,111 @@
+{
+  "messageType": "pArq",
+  "deviceChannel": "01",
+  "p_messageVersion": "1.0.5",
+  "sdkAppID": "029465aa-5742-4826-b33c-16b90ea6e6e8",
+  "sdkEphemPubKey": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "086_GiaVOhLGERbpWE3suPVVyjyk744G4OwAx5BsCiU",
+    "y": "yNRWz3W2LRifQcKh1Su6Hi-2cUh1k4CwYrcFon9nuSs"
+  },
+  "sdkTransID": "9c38315b-3b1c-4cbf-878a-0ac87615a2e7",
+  "sdkReferenceNumber": "3DS_LOA_SDK_PPFU_020100_00007",
+  "messageVersion": "2.1.0",
+  "messageCategory": "01",
+  "sdkMaxTimeout": "05",
+  "sdkEncData": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.AbPD6RnPygQbo1PHiqTgWLxwbxmbuwk-CHs9Xf05ooN6whb018WWK_8nMqVySS-DN72BdktmptZmFwsRqu2uVjKR-M8zIHFpG_krh9BvTSx4g-2b6H1yXJPDJt-kamNQg4Iyk05SAH4osNjwhVq_FzWAjmM_-DqjjvjAR6hfd1mglv9yV-QBp0P2rH6MoHpfn3FU1n_rJQAst_Sx6WmhwLhIeBEXiMp3aypwNIBDawfthTJxhBmdmknRsid72hX1FijVFTzABMkJtJVoMEAvBrdt7ALsmeN5r2Cu9LSAdcr8hDnUO12GMkzkA8IC7UXP6ZBzdx1VDRn8vYqn1wVRKA.y7rLcz_Q_Hh5Mlou3_gSow.uKpj56nZH7-8bCu_fZrPpKRxDs5xkfAB-u9TpOYwWVYeaOpB-Qj0PRq9uJD2wnIaVqe3v61KmCubx3m56qSTX0oKFooLuJgthJnQABRJYVbCrtWEEM3-DGBmmIqx0JIFyeNJi5hCTMuR6afJOwOjAt80IScwKII9MhpznUJ401klZwI1PJPdp_OQdEAugDKYMpMpnzpc8_a4K4MHW6JwBwB9nyCLnIXCW5QJNl7lSkyJo9QkY2m983moqZyTDV2povXkL_fMKVEenDQwa-QjqAv40Oh9L7HXgbadUdlZqG-_kuqidaUctvZ0SH4qE3KzMlpT9rJoMGscFLK8vwGcOuZGutcMC2Sk9SCpscmOxLKyW9SNy9km1MftJnrpQgV9WNZRU4YVqCQtJc1cdSNU3twT5auj5eyq-oxwB9YDNOXOsxeLb6uhpS6ypspi0MzeIIY9ohMNqd_sAPUDoPN-Xw.C3czIUmJY-ritXnWXPZ74g",
+  "threeDSRequestorID": "1481",
+  "threeDSRequestorName": "EMVCo 3DS Test Requestor",
+  "threeDSRequestorURL": "http://ul.com/7cb637f9-a312-465a-85ff-29bffc5a9110",
+  "acctNumber": "7654310438720050",
+  "deviceRenderOptions": {
+    "sdkInterface": "03",
+    "sdkUiType": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05"
+    ]
+  },
+  "threeDSRequestorAuthenticationInd": "01",
+  "threeDSRequestorAuthenticationInfo": {
+    "threeDSReqAuthMethod": "04",
+    "threeDSReqAuthTimestamp": "201911181623",
+    "threeDSReqAuthData": "00"
+  },
+  "threeDSRequestorChallengeInd": "01",
+  "acctType": "02",
+  "addrMatch": "Y",
+  "acctInfo": {
+    "chAccAgeInd": "05",
+    "chAccDate": "20170101",
+    "chAccChangeInd": "04",
+    "chAccChange": "20170101",
+    "chAccPwChangeInd": "05",
+    "chAccPwChange": "20170101",
+    "shipAddressUsageInd": "04",
+    "shipAddressUsage": "20170101",
+    "txnActivityDay": "1",
+    "txnActivityYear": "1",
+    "provisionAttemptsDay": "0",
+    "nbPurchaseAccount": "1",
+    "suspiciousAccActivity": "01",
+    "shipNameIndicator": "01",
+    "paymentAccInd": "05",
+    "paymentAccAge": "20170101"
+  },
+  "acctID": "EMVCo 3DS Test Account 000000001",
+  "merchantRiskIndicator": {
+    "shipIndicator": "01",
+    "deliveryTimeframe": "02",
+    "deliveryEmailAddress": "example@example.com",
+    "reorderItemsInd": "01",
+    "preOrderPurchaseInd": "02",
+    "preOrderDate": "20300101",
+    "giftCardAmount": "1",
+    "giftCardCurr": "840",
+    "giftCardCount": "01"
+  },
+  "mcc": "7922",
+  "billAddrLine1": "Address Line 1",
+  "homePhone": {
+    "cc": "123",
+    "subscriber": "123456789"
+  },
+  "purchaseAmount": "70",
+  "shipAddrState": "AZ",
+  "shipAddrLine1": "Address Line 1",
+  "shipAddrCountry": "840",
+  "cardholderName": "Frictionless One",
+  "acquirerMerchantID": "9876543210001",
+  "purchaseDate": "20191118162304",
+  "purchaseCurrency": "840",
+  "mobilePhone": {
+    "cc": "123",
+    "subscriber": "123456789"
+  },
+  "billAddrCountry": "840",
+  "transType": "01",
+  "threeDSServerOperatorID": "threeDSServerOperatorUL",
+  "merchantName": "Ticket Service",
+  "shipAddrPostCode": "Postal Code",
+  "billAddrPostCode": "Postal Code",
+  "email": "example@example.com",
+  "billAddrCity": "City Name",
+  "workPhone": {
+    "cc": "123",
+    "subscriber": "123456789"
+  },
+  "billAddrLine2": "Address Line 2",
+  "purchaseExponent": "2",
+  "shipAddrCity": "City Name",
+  "merchantCountryCode": "840",
+  "acquirerBIN": "000000999",
+  "shipAddrLine2": "Address Line 2",
+  "shipAddrLine3": "Address Line 3",
+  "billAddrLine3": "Address Line 3",
+  "billAddrState": "AZ",
+  "cardExpiryDate": "2212"
+}

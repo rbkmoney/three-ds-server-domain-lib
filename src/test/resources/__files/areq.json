@@ -1,0 +1,106 @@
+{
+  "messageType": "AReq",
+  "messageVersion": "2.1.0",
+  "threeDSRequestorAuthenticationInd": "04",
+  "threeDSRequestorAuthenticationInfo": {
+    "threeDSReqAuthMethod": "04",
+    "threeDSReqAuthTimestamp": "201911181623",
+    "threeDSReqAuthData": "00"
+  },
+  "threeDSRequestorChallengeInd": "01",
+  "threeDSRequestorID": "1481",
+  "threeDSRequestorName": "EMVCo 3DS Test Requestor",
+  "threeDSRequestorURL": "http://ul.com/30c8b894-64fc-4335-8dc0-f423af4270fc",
+  "threeDSServerRefNumber": "3DS_LOA_SER_PPFU_020100_00008",
+  "threeDSServerOperatorID": "threeDSServerOperatorUL",
+  "threeDSServerTransID": "1e044538-0664-49ef-99bd-ded42deabec5",
+  "threeDSServerURL": "https://3ds.rbk.money/ds",
+  "acctType": "02",
+  "addrMatch": "Y",
+  "cardExpiryDate": "2212",
+  "acctInfo": {
+    "chAccAgeInd": "05",
+    "chAccChange": "20170101",
+    "chAccChangeInd": "04",
+    "chAccDate": "20170101",
+    "chAccPwChange": "20170101",
+    "chAccPwChangeInd": "05",
+    "nbPurchaseAccount": "1",
+    "provisionAttemptsDay": "0",
+    "txnActivityDay": "1",
+    "txnActivityYear": "1",
+    "paymentAccAge": "20170101",
+    "paymentAccInd": "05",
+    "shipAddressUsage": "20170101",
+    "shipAddressUsageInd": "04",
+    "shipNameIndicator": "01",
+    "suspiciousAccActivity": "01"
+  },
+  "acctNumber": "7654310438700716",
+  "acctID": "EMVCo 3DS Test Account 000000001",
+  "billAddrCity": "City Name",
+  "billAddrCountry": "840",
+  "billAddrLine1": "Address Line 1",
+  "billAddrLine2": "Address Line 2",
+  "billAddrLine3": "Address Line 3",
+  "billAddrPostCode": "Postal Code",
+  "billAddrState": "AZ",
+  "email": "example@example.com",
+  "homePhone": {
+    "cc": "123",
+    "subscriber": "123456789"
+  },
+  "mobilePhone": {
+    "cc": "123",
+    "subscriber": "123456789"
+  },
+  "cardholderName": "Frictionless One",
+  "shipAddrCity": "City Name",
+  "shipAddrCountry": "840",
+  "shipAddrLine1": "Address Line 1",
+  "shipAddrLine2": "Address Line 2",
+  "shipAddrLine3": "Address Line 3",
+  "shipAddrPostCode": "Postal Code",
+  "shipAddrState": "AZ",
+  "workPhone": {
+    "cc": "123",
+    "subscriber": "123456789"
+  },
+  "deviceChannel": "01",
+  "deviceRenderOptions": {
+    "sdkInterface": "03",
+    "sdkUiType": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05"
+    ]
+  },
+  "merchantRiskIndicator": {
+    "deliveryEmailAddress": "example@example.com",
+    "deliveryTimeframe": "02",
+    "giftCardAmount": "1",
+    "giftCardCount": "01",
+    "giftCardCurr": "840",
+    "preOrderDate": "20300101",
+    "preOrderPurchaseInd": "02",
+    "reorderItemsInd": "01",
+    "shipIndicator": "01"
+  },
+  "messageCategory": "02",
+  "sdkAppID": "3fe26e5b-7bfc-4e81-af10-7971dce92e15",
+  "sdkEphemPubKey": {
+    "kty": "EC",
+    "crv": "P-256",
+    "x": "9KatyvLIg7TkKdeLHrL_VlExSr3BQRRCtcw2rctncoo",
+    "y": "Z1ZesIiyi0uS0IdVmxXl2Un3sMI-VlC1DQV-1G7H0rU"
+  },
+  "sdkMaxTimeout": "05",
+  "sdkReferenceNumber": "3DS_LOA_SDK_PPFU_020100_00007",
+  "sdkTransID": "c1ded547-2ed6-4497-9b98-2c6da07b9b41",
+  "deviceInfo": "ewogICJEViI6ICIxLjEiLAogICJERCI6IHsKICAgICJDMDAxIjogIkFuZHJvaWQiLAogICAgIkMwMDIiOiAiRGV2aWNlIE1hbnVmYWN0dXJlciIsCiAgICAiQzAwNCI6ICJWZXJzaW9uIiwKICAgICJDMDA1IjogImVuX1VTIiwKICAgICJDMDA2IjogIkVhc3Rlcm4gU3RhbmRhcmQgVGltZSIsCiAgICAiQzAwNyI6ICIwYzgzODNkMC0wZDU0LTRmNjEtOTVkNC05NzYyZTYyZDBhNDAiLAogICAgIkMwMDkiOiAiTXkgRGV2aWNlIE5hbWUiCiAgfSwKICAiRFBOQSI6IHsKICAgICJDMDEwIjogIlJFMDEiLAogICAgIkMwMTEiOiAiUkUwMyIKICB9LAogICJTVyI6IFsKICAgICJTVzAxIiwKICAgICJTVzA0IgogIF0KfQ",
+  "dsReferenceNumber": "3DS_LOA_DIS_PPFU_020100_00010",
+  "dsTransID": "7f9dc5eb-da0e-4fc1-95d8-cf566f7ab392",
+  "dsURL": "https://simulator-mutual-3ds.selftestplatform.com/v2.1.0/ds/813/"
+}

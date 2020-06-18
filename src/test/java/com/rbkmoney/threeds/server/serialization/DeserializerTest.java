@@ -23,7 +23,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class SerializationTest {
+public class DeserializerTest {
 
     private static final String ACTUAL_GARBAGE_VALUE = "KEKW";
 
@@ -247,7 +247,7 @@ public class SerializationTest {
         private ListWrapper<CardRange> cardRangeData;
         @JsonDeserialize(using = AcsInfoIndDeserializer.class)
         private ListWrapper<EnumWrapper<AcsInfoInd>> acsInfoInd;
-        @JsonDeserialize(using = LocalDateDeserializer.class)
+        @JsonDeserialize(using = LocalDateWrapperDeserializer.class)
         private TemporalAccessorWrapper<LocalDate> chAccChange;
         @JsonDeserialize(using = MessageExtensionDeserializer.class)
         private ListWrapper<MessageExtension> messageExtension;

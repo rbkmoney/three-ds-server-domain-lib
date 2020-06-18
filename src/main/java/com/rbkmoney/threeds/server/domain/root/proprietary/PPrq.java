@@ -2,11 +2,13 @@ package com.rbkmoney.threeds.server.domain.root.proprietary;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.rbkmoney.threeds.server.constraint.CustomValidation;
 import com.rbkmoney.threeds.server.domain.message.MessageExtension;
 import com.rbkmoney.threeds.server.domain.root.Message;
 import com.rbkmoney.threeds.server.serialization.ListWrapper;
 import com.rbkmoney.threeds.server.serialization.deserializer.MessageExtensionDeserializer;
+import com.rbkmoney.threeds.server.serialization.serializer.MessageExtensionSerializer;
 import lombok.*;
 
 /**
@@ -29,6 +31,7 @@ public class PPrq extends Message {
     private String threeDSServerTransID;
     private String threeDSRequestorURL;
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
+    @JsonSerialize(using = MessageExtensionSerializer.class)
     private ListWrapper<MessageExtension> messageExtension;
 
     @ToString.Include
