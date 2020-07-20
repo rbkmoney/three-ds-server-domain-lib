@@ -1,6 +1,6 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.AddressMatch;
+import com.rbkmoney.threeds.server.domain.address.AddressMatch;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
 public class AddressMatchDeserializer extends AbstractEnumDeserializer<AddressMatch> {

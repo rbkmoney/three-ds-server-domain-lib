@@ -1,6 +1,6 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.BrowserColorDepth;
+import com.rbkmoney.threeds.server.domain.browser.BrowserColorDepth;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
 public class BrowserColorDepthDeserializer extends AbstractEnumDeserializer<BrowserColorDepth> {

@@ -1,6 +1,6 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.PayTokenSource;
+import com.rbkmoney.threeds.server.domain.token.PayTokenSource;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
 public class PayTokenSourceDeserializer extends AbstractEnumDeserializer<PayTokenSource> {

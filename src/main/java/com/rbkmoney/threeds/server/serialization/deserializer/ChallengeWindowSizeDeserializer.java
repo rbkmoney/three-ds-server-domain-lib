@@ -1,6 +1,6 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.ChallengeWindowSize;
+import com.rbkmoney.threeds.server.domain.challenge.ChallengeWindowSize;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
 public class ChallengeWindowSizeDeserializer extends AbstractEnumDeserializer<ChallengeWindowSize> {

@@ -1,4 +1,4 @@
-package com.rbkmoney.threeds.server.domain;
+package com.rbkmoney.threeds.server.domain.phone;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.ChallengeCancel;
+import com.rbkmoney.threeds.server.domain.challenge.ChallengeCancel;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
 public class ChallengeCancelDeserializer extends AbstractEnumDeserializer<ChallengeCancel> {

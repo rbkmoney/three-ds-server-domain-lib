@@ -1,8 +1,8 @@
 package com.rbkmoney.threeds.server.domain.root.emvco;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rbkmoney.threeds.server.domain.ResultsStatus;
 import com.rbkmoney.threeds.server.domain.message.MessageExtension;
+import com.rbkmoney.threeds.server.domain.result.ResultsStatus;
 import com.rbkmoney.threeds.server.domain.root.Message;
 import lombok.*;
 

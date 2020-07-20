@@ -1,4 +1,4 @@
-package com.rbkmoney.threeds.server.domain;
+package com.rbkmoney.threeds.server.domain.result;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.RequiredArgsConstructor;

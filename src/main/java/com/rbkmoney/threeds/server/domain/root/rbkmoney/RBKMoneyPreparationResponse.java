@@ -1,8 +1,8 @@
 package com.rbkmoney.threeds.server.domain.root.rbkmoney;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.rbkmoney.threeds.server.domain.rbkmoney.cardrange.CardRange;
 import com.rbkmoney.threeds.server.domain.root.Message;
-import com.rbkmoney.threeds.server.dto.CardRangeDTO;
 import lombok.*;
 
 import java.util.List;
@@ -18,8 +18,8 @@ public class RBKMoneyPreparationResponse extends Message {
 
     private String providerId;
     private String serialNum;
-    private List<CardRangeDTO> addedCardRanges;
-    private List<CardRangeDTO> modifiedCardRanges;
-    private List<CardRangeDTO> deletedCardRanges;
+    private List<CardRange> addedCardRanges;
+    private List<CardRange> modifiedCardRanges;
+    private List<CardRange> deletedCardRanges;
 
 }

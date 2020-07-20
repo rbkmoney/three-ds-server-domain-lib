@@ -3,7 +3,7 @@ package com.rbkmoney.threeds.server.domain.root.emvco;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.rbkmoney.threeds.server.constraint.CustomValidation;
-import com.rbkmoney.threeds.server.domain.CardRange;
+import com.rbkmoney.threeds.server.domain.cardrange.CardRange;
 import com.rbkmoney.threeds.server.domain.message.MessageExtension;
 import com.rbkmoney.threeds.server.domain.root.Message;
 import com.rbkmoney.threeds.server.serialization.ListWrapper;
