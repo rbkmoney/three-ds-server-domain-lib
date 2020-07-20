@@ -1,6 +1,6 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.DeliveryTimeframe;
+import com.rbkmoney.threeds.server.domain.merchant.DeliveryTimeframe;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
 public class DeliveryTimeframeDeserializer extends AbstractEnumDeserializer<DeliveryTimeframe> {

@@ -1,6 +1,7 @@
-package com.rbkmoney.threeds.server.domain;
+package com.rbkmoney.threeds.server.domain.token;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.rbkmoney.threeds.server.domain.Valuable;
 import lombok.RequiredArgsConstructor;
 
 /**

@@ -1,4 +1,4 @@
-package com.rbkmoney.threeds.server.domain;
+package com.rbkmoney.threeds.server.domain.merchant;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

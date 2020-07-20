@@ -1,6 +1,6 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.ActionInd;
+import com.rbkmoney.threeds.server.domain.cardrange.ActionInd;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
 public class ActionIndDeserializer extends AbstractEnumDeserializer<ActionInd> {
