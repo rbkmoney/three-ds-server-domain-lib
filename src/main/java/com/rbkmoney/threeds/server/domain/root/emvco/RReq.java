@@ -30,6 +30,10 @@ import lombok.*;
 public class RReq extends Message {
 
     @ToString.Include
+    private String threeDSServerTransID;
+    @ToString.Include
+    private String acsTransID;
+    @ToString.Include
     private AcsRenderingTypeWrapper acsRenderingType;
     @ToString.Include
     @JsonDeserialize(using = AuthenticationMethodDeserializer.class)
@@ -41,12 +45,16 @@ public class RReq extends Message {
     @ToString.Include
     @JsonDeserialize(using = ChallengeCancelDeserializer.class)
     private EnumWrapper<ChallengeCancel> challengeCancel;
+    @ToString.Include
+    private String dsTransID;
     private String eci;
     private String interactionCounter;
     @JsonDeserialize(using = MessageCategoryDeserializer.class)
     private EnumWrapper<MessageCategory> messageCategory;
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
     private ListWrapper<MessageExtension> messageExtension;
+    @ToString.Include
+    private String sdkTransID;
     @ToString.Include
     @JsonDeserialize(using = TransactionStatusDeserializer.class)
     private EnumWrapper<TransactionStatus> transStatus;
@@ -59,13 +67,5 @@ public class RReq extends Message {
     @ToString.Include
     @JsonDeserialize(using = WhiteListStatusSourceDeserializer.class)
     private EnumWrapper<WhiteListStatusSource> whiteListStatusSource;
-    @ToString.Include
-    private String sdkTransID;
-    @ToString.Include
-    private String threeDSServerTransID;
-    @ToString.Include
-    private String dsTransID;
-    @ToString.Include
-    private String acsTransID;
 
 }

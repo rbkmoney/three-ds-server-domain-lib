@@ -18,15 +18,15 @@ import java.util.List;
 public class RRes extends Message {
 
     @ToString.Include
+    private String threeDSServerTransID;
+    @ToString.Include
+    private String acsTransID;
+    @ToString.Include
+    private String dsTransID;
+    private List<MessageExtension> messageExtension;
+    @ToString.Include
     private ResultsStatus resultsStatus;
     @ToString.Include
     private String sdkTransID;
-    @ToString.Include
-    private String threeDSServerTransID;
-    @ToString.Include
-    private String dsTransID;
-    @ToString.Include
-    private String acsTransID;
-    private List<MessageExtension> messageExtension;
 
 }
