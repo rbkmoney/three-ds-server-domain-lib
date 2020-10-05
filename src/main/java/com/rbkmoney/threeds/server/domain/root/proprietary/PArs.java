@@ -32,7 +32,9 @@ public class PArs extends Message {
     private String p_messageVersion;
     @ToString.Include
     private TransactionStatus transStatus;
+    @ToString.Include
     private String dsReferenceNumber;
+    @ToString.Include
     private String acsReferenceNumber;
     @ToString.Include
     private String acsTransID;
@@ -40,12 +42,12 @@ public class PArs extends Message {
     private String dsTransID;
     private String authenticationValue;
     private AcsRenderingType acsRenderingType;
+    @ToString.Include
     private String acsOperatorID;
     private String acsSignedContent;
     private String acsURL;
     @ToString.Include
     private AuthenticationType authenticationType;
-    @ToString.Include
     private AcsChallengeMandated acsChallengeMandated;
     private String eci;
     private List<MessageExtension> messageExtension;
@@ -56,9 +58,7 @@ public class PArs extends Message {
     private String cardholderInfo;
     private Object broadInfo;
     private AcsDecConInd acsDecConInd;
-    @ToString.Include
     private WhiteListStatus whiteListStatus;
-    @ToString.Include
     private WhiteListStatusSource whiteListStatusSource;
 
 }

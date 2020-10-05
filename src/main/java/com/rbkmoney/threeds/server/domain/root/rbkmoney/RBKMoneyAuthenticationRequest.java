@@ -35,12 +35,13 @@ import java.util.Map;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 @CustomValidation
 public class RBKMoneyAuthenticationRequest extends Message {
 
+    @ToString.Include
     private String acctNumber;
     private String cardExpiryDate;
     @ToString.Include
@@ -49,13 +50,15 @@ public class RBKMoneyAuthenticationRequest extends Message {
     @ToString.Include
     @JsonDeserialize(using = MessageCategoryDeserializer.class)
     private EnumWrapper<MessageCategory> messageCategory;
+    private String p_messageVersion;
     @ToString.Include
     private String threeDSRequestorID;
     @ToString.Include
     private String threeDSRequestorName;
-    @ToString.Include
     private String threeDSRequestorURL;
+    @ToString.Include
     private String acquirerBIN;
+    @ToString.Include
     private String acquirerMerchantID;
     @JsonDeserialize(using = AddressMatchDeserializer.class)
     private EnumWrapper<AddressMatch> addrMatch;
@@ -73,23 +76,30 @@ public class RBKMoneyAuthenticationRequest extends Message {
     private String browserUserAgent;
     private String cardholderName;
     private DeviceRenderOptionsWrapper deviceRenderOptions;
+    @ToString.Include
     private String email;
     private Phone homePhone;
     private String mcc;
     private String merchantCountryCode;
+    @ToString.Include
     private String merchantName;
     private Phone mobilePhone;
+    @ToString.Include
     private String purchaseAmount;
+    @ToString.Include
     private String purchaseCurrency;
     @JsonDeserialize(using = LocalDateTimeMinuteSecondDeserializer.class)
     private TemporalAccessorWrapper<LocalDateTime> purchaseDate;
+    @ToString.Include
     private String purchaseExponent;
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private TemporalAccessorWrapper<LocalDate> recurringExpiry;
     private String recurringFrequency;
+    @ToString.Include
     private String sdkAppID;
     private String sdkEncData;
     private Map<String, String> sdkEphemPubKey;
+    @ToString.Include
     private String sdkReferenceNumber;
     @ToString.Include
     private String sdkTransID;
@@ -99,6 +109,7 @@ public class RBKMoneyAuthenticationRequest extends Message {
     @JsonDeserialize(using = TransactionTypeDeserializer.class)
     private EnumWrapper<TransactionType> transType;
     private Phone workPhone;
+    @ToString.Include
     private String acctID;
     private AccountInfoWrapper acctInfo;
     @ToString.Include
@@ -110,43 +121,34 @@ public class RBKMoneyAuthenticationRequest extends Message {
     private Boolean payTokenInd;
     private String purchaseInstalData;
     private ThreeDSRequestorAuthenticationInfoWrapper threeDSRequestorAuthenticationInfo;
-    @ToString.Include
     @JsonDeserialize(using = ThreeDSRequestorChallengeIndDeserializer.class)
     private EnumWrapper<ThreeDSRequestorChallengeInd> threeDSRequestorChallengeInd;
-    @ToString.Include
     @JsonDeserialize(using = ThreeDSRequestorAuthenticationIndDeserializer.class)
     private EnumWrapper<ThreeDSRequestorAuthenticationInd> threeDSRequestorAuthenticationInd;
-    @ToString.Include
     @JsonDeserialize(using = ThreeRIIndDeserializer.class)
     private EnumWrapper<ThreeRIInd> threeRIInd;
-    @ToString.Include
     private ThreeDSRequestorPriorAuthenticationInfoWrapper threeDSRequestorPriorAuthenticationInfo;
+    @ToString.Include
     private String threeDSServerRefNumber;
+    @ToString.Include
     private String threeDSServerOperatorID;
     @ToString.Include
     private String threeDSServerTransID;
-    @ToString.Include
     private String threeDSServerURL;
     private Object broadInfo;
     private String notificationURL;
-    @ToString.Include
     @JsonDeserialize(using = ThreeDsMethodCompletionIndicatorDeserializer.class)
-    private EnumWrapper<ThreeDsMethodCompletionIndicator> threeDSCompInd;
-    @ToString.Include
+    private EnumWrapper<ThreeDsMethodCompletionInd> threeDSCompInd;
     private String sdkMaxTimeout;
     private String acsURL;
-    @ToString.Include
     private String threeDSRequestorDecMaxTime;
-    @ToString.Include
     @JsonDeserialize(using = ThreeDSRequestorDecReqIndDeserializer.class)
     private EnumWrapper<ThreeDSRequestorDecReqInd> threeDSRequestorDecReqInd;
     private Boolean browserJavascriptEnabled;
     @JsonDeserialize(using = PayTokenSourceDeserializer.class)
     private EnumWrapper<PayTokenSource> payTokenSource;
-    @ToString.Include
     @JsonDeserialize(using = WhiteListStatusDeserializer.class)
     private EnumWrapper<WhiteListStatus> whiteListStatus;
-    @ToString.Include
     @JsonDeserialize(using = WhiteListStatusSourceDeserializer.class)
     private EnumWrapper<WhiteListStatusSource> whiteListStatusSource;
 

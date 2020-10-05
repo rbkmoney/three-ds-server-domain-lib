@@ -29,7 +29,6 @@ public class PReq extends Message {
     /**
      * only for PPrq
      */
-    @ToString.Include
     private String threeDSRequestorURL;
 
 }

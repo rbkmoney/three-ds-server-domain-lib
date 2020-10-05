@@ -33,9 +33,7 @@ public class RReq extends Message {
     private String threeDSServerTransID;
     @ToString.Include
     private String acsTransID;
-    @ToString.Include
     private AcsRenderingTypeWrapper acsRenderingType;
-    @ToString.Include
     @JsonDeserialize(using = AuthenticationMethodDeserializer.class)
     private EnumWrapper<AuthenticationMethod> authenticationMethod;
     @ToString.Include
@@ -49,6 +47,7 @@ public class RReq extends Message {
     private String dsTransID;
     private String eci;
     private String interactionCounter;
+    @ToString.Include
     @JsonDeserialize(using = MessageCategoryDeserializer.class)
     private EnumWrapper<MessageCategory> messageCategory;
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
@@ -61,10 +60,8 @@ public class RReq extends Message {
     @ToString.Include
     @JsonDeserialize(using = TransactionStatusReasonDeserializer.class)
     private EnumWrapper<TransactionStatusReason> transStatusReason;
-    @ToString.Include
     @JsonDeserialize(using = WhiteListStatusDeserializer.class)
     private EnumWrapper<WhiteListStatus> whiteListStatus;
-    @ToString.Include
     @JsonDeserialize(using = WhiteListStatusSourceDeserializer.class)
     private EnumWrapper<WhiteListStatusSource> whiteListStatusSource;
 

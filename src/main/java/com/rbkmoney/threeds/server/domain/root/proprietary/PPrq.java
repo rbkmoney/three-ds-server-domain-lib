@@ -31,7 +31,6 @@ public class PPrq extends Message {
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
     private ListWrapper<MessageExtension> messageExtension;
 
-    @ToString.Include
     private String threeDSServerOperatorID;
 
 }

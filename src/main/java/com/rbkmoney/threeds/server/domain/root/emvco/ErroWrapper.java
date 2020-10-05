@@ -20,6 +20,7 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 @CustomValidation

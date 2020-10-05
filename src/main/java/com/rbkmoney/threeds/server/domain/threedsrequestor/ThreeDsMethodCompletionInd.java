@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
  * •
  */
 @RequiredArgsConstructor
-public enum ThreeDsMethodCompletionIndicator implements Valuable {
+public enum ThreeDsMethodCompletionInd implements Valuable {
 
     SUCCESSFULLY_COMPLETED("Y"),
 
