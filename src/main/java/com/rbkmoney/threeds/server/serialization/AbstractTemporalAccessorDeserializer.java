@@ -11,15 +11,12 @@ import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
 import java.time.DateTimeException;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
 @RequiredArgsConstructor
 public abstract class AbstractTemporalAccessorDeserializer<T extends TemporalAccessor> extends JsonDeserializer<TemporalAccessorWrapper<T>> {
 
-    private final String pattern;
-
-    protected abstract T parse(String candidate, DateTimeFormatter formatter);
+    protected abstract T parse(String candidate);
 
     @Override
     public TemporalAccessorWrapper<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -33,7 +30,7 @@ public abstract class AbstractTemporalAccessorDeserializer<T extends TemporalAcc
             String candidate = textNode.asText();
 
             try {
-                T temporalAccessor = parse(candidate, DateTimeFormatter.ofPattern(pattern));
+                T temporalAccessor = parse(candidate);
 
                 TemporalAccessorWrapper<T> temporalAccessorWrapper = new TemporalAccessorWrapper<>();
                 temporalAccessorWrapper.setValue(temporalAccessor);

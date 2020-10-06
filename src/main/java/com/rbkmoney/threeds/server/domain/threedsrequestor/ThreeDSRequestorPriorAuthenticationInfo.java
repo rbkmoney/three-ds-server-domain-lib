@@ -1,7 +1,10 @@
 package com.rbkmoney.threeds.server.domain.threedsrequestor;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.rbkmoney.threeds.server.serialization.deserializer.LocalDateTimeMinuteDeserializer;
+import com.rbkmoney.threeds.server.serialization.serializer.LocalDateTimeMinuteSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +25,8 @@ public class ThreeDSRequestorPriorAuthenticationInfo {
 
     private String threeDSReqPriorAuthData;
     private ThreeDSReqPriorAuthMethod threeDSReqPriorAuthMethod;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMddHHmm")
+    @JsonDeserialize(using = LocalDateTimeMinuteDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeMinuteSerializer.class)
     private LocalDateTime threeDSReqPriorAuthTimestamp;
     private String threeDSReqPriorRef;
 

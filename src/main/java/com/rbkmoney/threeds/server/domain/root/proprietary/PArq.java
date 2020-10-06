@@ -3,6 +3,7 @@ package com.rbkmoney.threeds.server.domain.root.proprietary;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.rbkmoney.threeds.server.constraint.CustomValidation;
 import com.rbkmoney.threeds.server.domain.account.AccountInfoWrapper;
 import com.rbkmoney.threeds.server.domain.account.AccountType;
@@ -25,6 +26,7 @@ import com.rbkmoney.threeds.server.serialization.EnumWrapper;
 import com.rbkmoney.threeds.server.serialization.ListWrapper;
 import com.rbkmoney.threeds.server.serialization.TemporalAccessorWrapper;
 import com.rbkmoney.threeds.server.serialization.deserializer.*;
+import com.rbkmoney.threeds.server.serialization.serializer.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -49,9 +51,11 @@ public class PArq extends Message {
     private String cardExpiryDate;
     @ToString.Include
     @JsonDeserialize(using = DeviceChannelDeserializer.class)
+    @JsonSerialize(using = DeviceChannelSerializer.class)
     private EnumWrapper<DeviceChannel> deviceChannel;
     @ToString.Include
     @JsonDeserialize(using = MessageCategoryDeserializer.class)
+    @JsonSerialize(using = MessageCategorySerializer.class)
     private EnumWrapper<MessageCategory> messageCategory;
     private String p_messageVersion;
     @ToString.Include
@@ -64,11 +68,13 @@ public class PArq extends Message {
     @ToString.Include
     private String acquirerMerchantID;
     @JsonDeserialize(using = AddressMatchDeserializer.class)
+    @JsonSerialize(using = AddressMatchSerializer.class)
     private EnumWrapper<AddressMatch> addrMatch;
     @JsonUnwrapped(prefix = "bill")
     private Address billingAddress;
     private String browserAcceptHeader;
     @JsonDeserialize(using = BrowserColorDepthDeserializer.class)
+    @JsonSerialize(using = BrowserColorDepthSerializer.class)
     private EnumWrapper<BrowserColorDepth> browserColorDepth;
     private String browserIP;
     private Boolean browserJavaEnabled;
@@ -91,11 +97,13 @@ public class PArq extends Message {
     private String purchaseAmount;
     @ToString.Include
     private String purchaseCurrency;
-    @JsonDeserialize(using = LocalDateTimeMinuteSecondDeserializer.class)
+    @JsonDeserialize(using = LocalDateTimeMinuteSecondWrapperDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeMinuteSecondWrapperSerializer.class)
     private TemporalAccessorWrapper<LocalDateTime> purchaseDate;
     @ToString.Include
     private String purchaseExponent;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonDeserialize(using = LocalDateWrapperDeserializer.class)
+    @JsonSerialize(using = LocalDateWrapperSerializer.class)
     private TemporalAccessorWrapper<LocalDate> recurringExpiry;
     private String recurringFrequency;
     @ToString.Include
@@ -110,6 +118,7 @@ public class PArq extends Message {
     private Address shippingAddress;
     @ToString.Include
     @JsonDeserialize(using = TransactionTypeDeserializer.class)
+    @JsonSerialize(using = TransactionTypeSerializer.class)
     private EnumWrapper<TransactionType> transType;
     private Phone workPhone;
     @ToString.Include
@@ -117,18 +126,23 @@ public class PArq extends Message {
     private AccountInfoWrapper acctInfo;
     @ToString.Include
     @JsonDeserialize(using = AccountTypeDeserializer.class)
+    @JsonSerialize(using = AccountTypeSerializer.class)
     private EnumWrapper<AccountType> acctType;
     private MerchantRiskIndicatorWrapper merchantRiskIndicator;
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
+    @JsonSerialize(using = MessageExtensionSerializer.class)
     private ListWrapper<MessageExtension> messageExtension;
     private Boolean payTokenInd;
     private String purchaseInstalData;
     private ThreeDSRequestorAuthenticationInfoWrapper threeDSRequestorAuthenticationInfo;
     @JsonDeserialize(using = ThreeDSRequestorChallengeIndDeserializer.class)
+    @JsonSerialize(using = ThreeDSRequestorChallengeIndSerializer.class)
     private EnumWrapper<ThreeDSRequestorChallengeInd> threeDSRequestorChallengeInd;
     @JsonDeserialize(using = ThreeDSRequestorAuthenticationIndDeserializer.class)
+    @JsonSerialize(using = ThreeDSRequestorAuthenticationIndSerializer.class)
     private EnumWrapper<ThreeDSRequestorAuthenticationInd> threeDSRequestorAuthenticationInd;
     @JsonDeserialize(using = ThreeRIIndDeserializer.class)
+    @JsonSerialize(using = ThreeRIIndSerializer.class)
     private EnumWrapper<ThreeRIInd> threeRIInd;
     private ThreeDSRequestorPriorAuthenticationInfoWrapper threeDSRequestorPriorAuthenticationInfo;
     @ToString.Include
@@ -140,19 +154,24 @@ public class PArq extends Message {
     private String threeDSServerURL;
     private Object broadInfo;
     private String notificationURL;
-    @JsonDeserialize(using = ThreeDsMethodCompletionIndicatorDeserializer.class)
+    @JsonDeserialize(using = ThreeDsMethodCompletionIndDeserializer.class)
+    @JsonSerialize(using = ThreeDsMethodCompletionIndSerializer.class)
     private EnumWrapper<ThreeDsMethodCompletionInd> threeDSCompInd;
     private String sdkMaxTimeout;
     private String acsURL;
     private String threeDSRequestorDecMaxTime;
     @JsonDeserialize(using = ThreeDSRequestorDecReqIndDeserializer.class)
+    @JsonSerialize(using = ThreeDSRequestorDecReqIndSerializer.class)
     private EnumWrapper<ThreeDSRequestorDecReqInd> threeDSRequestorDecReqInd;
     private Boolean browserJavascriptEnabled;
     @JsonDeserialize(using = PayTokenSourceDeserializer.class)
+    @JsonSerialize(using = PayTokenSourceSerializer.class)
     private EnumWrapper<PayTokenSource> payTokenSource;
     @JsonDeserialize(using = WhiteListStatusDeserializer.class)
+    @JsonSerialize(using = WhiteListStatusSerializer.class)
     private EnumWrapper<WhiteListStatus> whiteListStatus;
     @JsonDeserialize(using = WhiteListStatusSourceDeserializer.class)
+    @JsonSerialize(using = WhiteListStatusSourceSerializer.class)
     private EnumWrapper<WhiteListStatusSource> whiteListStatusSource;
 
 }

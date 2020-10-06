@@ -2,12 +2,15 @@ package com.rbkmoney.threeds.server.domain.cardrange;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.rbkmoney.threeds.server.constraint.CustomValidation;
 import com.rbkmoney.threeds.server.domain.acs.AcsInfoInd;
 import com.rbkmoney.threeds.server.serialization.EnumWrapper;
 import com.rbkmoney.threeds.server.serialization.ListWrapper;
 import com.rbkmoney.threeds.server.serialization.deserializer.AcsInfoIndDeserializer;
 import com.rbkmoney.threeds.server.serialization.deserializer.ActionIndDeserializer;
+import com.rbkmoney.threeds.server.serialization.serializer.AcsInfoIndSerializer;
+import com.rbkmoney.threeds.server.serialization.serializer.ActionIndSerializer;
 import lombok.*;
 
 /**
@@ -28,9 +31,11 @@ public class CardRange {
     private String threeDSMethodURL;
     private String acsEndProtocolVersion;
     @JsonDeserialize(using = AcsInfoIndDeserializer.class)
+    @JsonSerialize(using = AcsInfoIndSerializer.class)
     private ListWrapper<EnumWrapper<AcsInfoInd>> acsInfoInd;
     private String acsStartProtocolVersion;
     @JsonDeserialize(using = ActionIndDeserializer.class)
+    @JsonSerialize(using = ActionIndSerializer.class)
     private EnumWrapper<ActionInd> actionInd;
     private String dsEndProtocolVersion;
     private String dsStartProtocolVersion;
