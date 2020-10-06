@@ -13,13 +13,15 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 @CustomValidation
 public class RBKMoneyGetChallengeRequest extends Message {
 
+    @ToString.Include
     private String threeDSServerTransID;
+    @ToString.Include
     private String acsTransID;
     @JsonDeserialize(using = ChallengeWindowSizeDeserializer.class)
     private EnumWrapper<ChallengeWindowSize> challengeWindowSize;

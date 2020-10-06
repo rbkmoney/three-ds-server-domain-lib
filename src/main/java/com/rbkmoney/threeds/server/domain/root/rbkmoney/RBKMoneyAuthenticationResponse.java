@@ -1,4 +1,4 @@
-package com.rbkmoney.threeds.server.domain.root.proprietary;
+package com.rbkmoney.threeds.server.domain.root.rbkmoney;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.rbkmoney.threeds.server.domain.acs.AcsChallengeMandated;
@@ -15,9 +15,6 @@ import lombok.*;
 
 import java.util.List;
 
-/**
- * proprietary Authentication Response
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -25,7 +22,7 @@ import java.util.List;
 @ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
-public class PArs extends Message {
+public class RBKMoneyAuthenticationResponse extends Message {
 
     @ToString.Include
     private String threeDSServerTransID;

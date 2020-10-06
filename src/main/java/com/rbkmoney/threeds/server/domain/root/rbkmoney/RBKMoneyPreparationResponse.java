@@ -11,12 +11,14 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 public class RBKMoneyPreparationResponse extends Message {
 
+    @ToString.Include
     private String providerId;
+    @ToString.Include
     private String serialNum;
     private List<CardRange> addedCardRanges;
     private List<CardRange> modifiedCardRanges;

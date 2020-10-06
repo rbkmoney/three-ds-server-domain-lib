@@ -1,4 +1,4 @@
-package com.rbkmoney.threeds.server.domain.root.proprietary;
+package com.rbkmoney.threeds.server.domain.root.rbkmoney;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -31,9 +31,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-/**
- * proprietary Authentication Request
- */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -42,7 +39,7 @@ import java.util.Map;
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 @CustomValidation
-public class PArq extends Message {
+public class RBKMoneyAuthenticationRequest extends Message {
 
     @ToString.Include
     private String acctNumber;

@@ -26,7 +26,9 @@ public class PReq extends Message {
     @ToString.Include
     private String serialNum;
 
-    @ToString.Include
+    /**
+     * only for PPrq
+     */
     private String threeDSRequestorURL;
 
 }

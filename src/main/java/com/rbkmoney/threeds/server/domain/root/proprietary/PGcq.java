@@ -21,13 +21,16 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 @CustomValidation
 public class PGcq extends Message {
 
     private String p_messageVersion;
+    @ToString.Include
     private String threeDSServerTransID;
+    @ToString.Include
     private String acsTransID;
     private String threeDSSessionData;
     @JsonDeserialize(using = ChallengeWindowSizeDeserializer.class)

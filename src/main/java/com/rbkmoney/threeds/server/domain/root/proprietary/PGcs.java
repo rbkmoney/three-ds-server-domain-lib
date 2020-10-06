@@ -11,11 +11,13 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
+@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 public class PGcs extends Message {
 
     private String p_messageVersion;
+    @ToString.Include
     private String htmlCreq;
 
 }

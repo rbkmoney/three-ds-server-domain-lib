@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.rbkmoney.threeds.server.domain.error.ErrorCode;
 import com.rbkmoney.threeds.server.domain.error.ErrorComponent;
+import com.rbkmoney.threeds.server.domain.message.MessageType;
 import com.rbkmoney.threeds.server.domain.root.Message;
 import lombok.*;
 
@@ -20,6 +21,12 @@ import lombok.*;
 public class Erro extends Message {
 
     @ToString.Include
+    private String threeDSServerTransID;
+    @ToString.Include
+    private String acsTransID;
+    @ToString.Include
+    private String dsTransID;
+    @ToString.Include
     private ErrorCode errorCode;
     @ToString.Include
     private ErrorComponent errorComponent;
@@ -28,15 +35,9 @@ public class Erro extends Message {
     @ToString.Include
     private String errorDetail;
     @ToString.Include
-    private String errorMessageType;
+    private MessageType errorMessageType;
     @ToString.Include
     private String sdkTransID;
-    @ToString.Include
-    private String threeDSServerTransID;
-    @ToString.Include
-    private String dsTransID;
-    @ToString.Include
-    private String acsTransID;
 
     @JsonIgnore
     private boolean handleRepetitionNeeded = false;

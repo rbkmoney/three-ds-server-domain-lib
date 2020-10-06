@@ -20,6 +20,7 @@ import java.util.List;
 public class PPrs extends Message {
 
     private String p_messageVersion;
+    @ToString.Include
     private Boolean p_completed;
     private List<MessageExtension> messageExtension;
 

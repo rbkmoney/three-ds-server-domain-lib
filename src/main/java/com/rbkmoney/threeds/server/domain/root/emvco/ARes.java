@@ -30,13 +30,13 @@ public class ARes extends Message {
 
     @ToString.Include
     private String threeDSServerTransID;
-    @ToString.Include
     @JsonDeserialize(using = AcsChallengeMandatedDeserializer.class)
     private EnumWrapper<AcsChallengeMandated> acsChallengeMandated;
-    @ToString.Include
     @JsonDeserialize(using = AcsDecConIndDeserializer.class)
     private EnumWrapper<AcsDecConInd> acsDecConInd;
+    @ToString.Include
     private String acsOperatorID;
+    @ToString.Include
     private String acsReferenceNumber;
     private AcsRenderingTypeWrapper acsRenderingType;
     private String acsSignedContent;
@@ -49,6 +49,7 @@ public class ARes extends Message {
     private String authenticationValue;
     private Object broadInfo;
     private String cardholderInfo;
+    @ToString.Include
     private String dsReferenceNumber;
     @ToString.Include
     private String dsTransID;
@@ -63,10 +64,8 @@ public class ARes extends Message {
     @ToString.Include
     @JsonDeserialize(using = TransactionStatusReasonDeserializer.class)
     private EnumWrapper<TransactionStatusReason> transStatusReason;
-    @ToString.Include
     @JsonDeserialize(using = WhiteListStatusDeserializer.class)
     private EnumWrapper<WhiteListStatus> whiteListStatus;
-    @ToString.Include
     @JsonDeserialize(using = WhiteListStatusSourceDeserializer.class)
     private EnumWrapper<WhiteListStatusSource> whiteListStatusSource;
 

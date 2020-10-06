@@ -1,17 +1,17 @@
 package com.rbkmoney.threeds.server.serialization.deserializer;
 
-import com.rbkmoney.threeds.server.domain.threedsrequestor.ThreeDsMethodCompletionIndicator;
+import com.rbkmoney.threeds.server.domain.threedsrequestor.ThreeDsMethodCompletionInd;
 import com.rbkmoney.threeds.server.serialization.AbstractEnumDeserializer;
 
-public class ThreeDsMethodCompletionIndicatorDeserializer extends AbstractEnumDeserializer<ThreeDsMethodCompletionIndicator> {
+public class ThreeDsMethodCompletionIndicatorDeserializer extends AbstractEnumDeserializer<ThreeDsMethodCompletionInd> {
 
     @Override
-    protected ThreeDsMethodCompletionIndicator enumValueOf(String candidate) {
-        return ThreeDsMethodCompletionIndicator.valueOf(candidate);
+    protected ThreeDsMethodCompletionInd enumValueOf(String candidate) {
+        return ThreeDsMethodCompletionInd.valueOf(candidate);
     }
 
     @Override
-    protected ThreeDsMethodCompletionIndicator[] enumValues() {
-        return ThreeDsMethodCompletionIndicator.values();
+    protected ThreeDsMethodCompletionInd[] enumValues() {
+        return ThreeDsMethodCompletionInd.values();
     }
 }

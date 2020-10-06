@@ -37,24 +37,17 @@ import java.util.Map;
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 public class AReq extends Message {
 
-    @ToString.Include
-    private ThreeDsMethodCompletionIndicator threeDSCompInd;
-    @ToString.Include
+    private ThreeDsMethodCompletionInd threeDSCompInd;
     private ThreeDSRequestorAuthenticationInd threeDSRequestorAuthenticationInd;
     private ThreeDSRequestorAuthenticationInfo threeDSRequestorAuthenticationInfo;
-    @ToString.Include
     private ThreeDSReqAuthMethodInd threeDSReqAuthMethodInd;
-    @ToString.Include
     private ThreeDSRequestorChallengeInd threeDSRequestorChallengeInd;
-    @ToString.Include
     private String threeDSRequestorDecMaxTime;
-    @ToString.Include
     private ThreeDSRequestorDecReqInd threeDSRequestorDecReqInd;
     @ToString.Include
     private String threeDSRequestorID;
     @ToString.Include
     private String threeDSRequestorName;
-    @ToString.Include
     private ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo;
     private String threeDSRequestorURL;
     @ToString.Include
@@ -63,13 +56,13 @@ public class AReq extends Message {
     private String threeDSServerOperatorID;
     @ToString.Include
     private String threeDSServerTransID;
-    @ToString.Include
     private String threeDSServerURL;
-    @ToString.Include
     private ThreeRIInd threeRIInd;
     @ToString.Include
     private AccountType acctType;
+    @ToString.Include
     private String acquirerBIN;
+    @ToString.Include
     private String acquirerMerchantID;
     private AddressMatch addrMatch;
     private Object broadInfo;
@@ -85,10 +78,13 @@ public class AReq extends Message {
     private String browserUserAgent;
     private String cardExpiryDate;
     private AccountInfo acctInfo;
+    @ToString.Include
     private String acctNumber;
+    @ToString.Include
     private String acctID;
     @JsonUnwrapped(prefix = "bill")
     private Address billingAddress;
+    @ToString.Include
     private String email;
     private Phone homePhone;
     private Phone mobilePhone;
@@ -100,6 +96,7 @@ public class AReq extends Message {
     private DeviceChannel deviceChannel;
     private String deviceInfo;
     private DeviceRenderOptions deviceRenderOptions;
+    @ToString.Include
     private String dsReferenceNumber;
     @ToString.Include
     private String dsTransID;
@@ -109,33 +106,36 @@ public class AReq extends Message {
     private String purchaseInstalData;
     private String mcc;
     private String merchantCountryCode;
-    private String merchantName;
     @ToString.Include
+    private String merchantName;
     private MerchantRiskIndicator merchantRiskIndicator;
     @ToString.Include
     private MessageCategory messageCategory;
     private List<MessageExtension> messageExtension;
     private String notificationURL;
+    @ToString.Include
     private String purchaseAmount;
+    @ToString.Include
     private String purchaseCurrency;
+    @ToString.Include
     private String purchaseExponent;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMddHHmmss")
     private LocalDateTime purchaseDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
     private LocalDate recurringExpiry;
     private String recurringFrequency;
+    @ToString.Include
     private String sdkAppID;
     private String sdkEncData;
     private Map<String, String> sdkEphemPubKey;
     private String sdkMaxTimeout;
+    @ToString.Include
     private String sdkReferenceNumber;
     @ToString.Include
     private String sdkTransID;
     @ToString.Include
     private TransactionType transType;
-    @ToString.Include
     private WhiteListStatus whiteListStatus;
-    @ToString.Include
     private WhiteListStatusSource whiteListStatusSource;
 
     @JsonIgnore

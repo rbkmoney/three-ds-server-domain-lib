@@ -6,10 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.rbkmoney.threeds.server.domain.root.emvco.*;
 import com.rbkmoney.threeds.server.domain.root.proprietary.*;
-import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyGetChallengeRequest;
-import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyGetChallengeResponse;
-import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyPreparationRequest;
-import com.rbkmoney.threeds.server.domain.root.rbkmoney.RBKMoneyPreparationResponse;
+import com.rbkmoney.threeds.server.domain.root.rbkmoney.*;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.lang.Nullable;
@@ -34,6 +31,8 @@ import org.springframework.lang.Nullable;
         @JsonSubTypes.Type(value = PPrq.class, name = "pPrq"),
         @JsonSubTypes.Type(value = PPrs.class, name = "pPrs"),
 
+        @JsonSubTypes.Type(value = RBKMoneyAuthenticationRequest.class, name = "RBKMONEY_AUTHENTICATION_REQUEST"),
+        @JsonSubTypes.Type(value = RBKMoneyAuthenticationResponse.class, name = "RBKMONEY_AUTHENTICATION_RESPONSE"),
         @JsonSubTypes.Type(value = RBKMoneyPreparationRequest.class, name = "RBKMONEY_PREPARATION_REQUEST"),
         @JsonSubTypes.Type(value = RBKMoneyPreparationResponse.class, name = "RBKMONEY_PREPARATION_RESPONSE"),
         @JsonSubTypes.Type(value = RBKMoneyGetChallengeRequest.class, name = "RBKMONEY_GET_CHALLENGE_REQUEST"),

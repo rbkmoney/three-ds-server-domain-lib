@@ -10,15 +10,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum MessageType implements Valuable {
 
-    ERROR("Erro"),
+    ERRO("Erro"),
 
     AREQ("AReq"),
 
     ARES("ARes"),
-
-    CREQ("CReq"),
-
-    CRES("CRes"),
 
     PREQ("PReq"),
 
@@ -36,25 +32,21 @@ public enum MessageType implements Valuable {
 
     PGCS("pGcs"),
 
-    PIRQ("pIrq"),
-
-    PIRS("pIrs"),
-
-    PORQ("pOrq"),
-
-    PORS("pOrs"),
-
     PPRQ("pPrq"),
 
     PPRS("pPrs"),
 
-    PSRQ("pSrq"),
+    RBKMONEY_AUTHENTICATION_REQUEST("RBKMONEY_AUTHENTICATION_REQUEST"),
 
-    PSRS("pSrs"),
+    RBKMONEY_AUTHENTICATION_RESPONSE("RBKMONEY_AUTHENTICATION_RESPONSE"),
 
     RBKMONEY_PREPARATION_REQUEST("RBKMONEY_PREPARATION_REQUEST"),
 
     RBKMONEY_PREPARATION_RESPONSE("RBKMONEY_PREPARATION_RESPONSE"),
+
+    RBKMONEY_GET_CHALLENGE_REQUEST("RBKMONEY_GET_CHALLENGE_REQUEST"),
+
+    RBKMONEY_GET_CHALLENGE_RESPONSE("RBKMONEY_GET_CHALLENGE_RESPONSE"),
 
     UNKN("Unkn");
 

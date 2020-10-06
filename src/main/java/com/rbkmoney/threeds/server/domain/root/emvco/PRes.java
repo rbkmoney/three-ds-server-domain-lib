@@ -22,12 +22,11 @@ import lombok.*;
 public class PRes extends Message {
 
     @ToString.Include
+    private String threeDSServerTransID;
     @JsonDeserialize(using = CardRangeDataDeserializer.class)
     private ListWrapper<CardRange> cardRangeData;
     private String dsEndProtocolVersion;
     private String dsStartProtocolVersion;
-    @ToString.Include
-    private String threeDSServerTransID;
     @ToString.Include
     private String dsTransID;
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
