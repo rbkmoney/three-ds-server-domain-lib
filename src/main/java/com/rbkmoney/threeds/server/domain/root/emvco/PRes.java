@@ -8,11 +8,11 @@ import com.rbkmoney.threeds.server.domain.cardrange.CardRange;
 import com.rbkmoney.threeds.server.domain.message.MessageExtension;
 import com.rbkmoney.threeds.server.domain.root.Message;
 import com.rbkmoney.threeds.server.serialization.ListWrapper;
-import com.rbkmoney.threeds.server.serialization.deserializer.CardRangeDataDeserializer;
 import com.rbkmoney.threeds.server.serialization.deserializer.MessageExtensionDeserializer;
-import com.rbkmoney.threeds.server.serialization.serializer.CardRangeDataSerializer;
 import com.rbkmoney.threeds.server.serialization.serializer.MessageExtensionSerializer;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,9 +26,10 @@ public class PRes extends Message {
 
     @ToString.Include
     private String threeDSServerTransID;
-    @JsonDeserialize(using = CardRangeDataDeserializer.class)
-    @JsonSerialize(using = CardRangeDataSerializer.class)
-    private ListWrapper<CardRange> cardRangeData;
+    // todo
+    //    @JsonDeserialize(using = CardRangeDataDeserializer.class)
+    //    @JsonSerialize(using = CardRangeDataSerializer.class)
+    private List<CardRange> cardRangeData;
     private String dsEndProtocolVersion;
     private String dsStartProtocolVersion;
     @ToString.Include
