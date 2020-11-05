@@ -26,7 +26,6 @@ public class RBKMoneyAuthenticationResponse extends Message {
 
     @ToString.Include
     private String threeDSServerTransID;
-    private String p_messageVersion;
     @ToString.Include
     private TransactionStatus transStatus;
     @ToString.Include

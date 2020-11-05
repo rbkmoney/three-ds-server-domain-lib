@@ -18,6 +18,7 @@ import java.lang.annotation.Target;
                 PGcqCustomValidator.class,
                 PPrqCustomValidator.class,
                 PResCustomValidator.class,
+                RBKMoneyAuthenticationRequestCustomValidator.class,
                 RBKMoneyGetChallengeRequestCustomValidator.class,
                 RBKMoneyPreparationRequestCustomValidator.class,
                 RReqCustomValidator.class
