@@ -6,20 +6,27 @@ import com.rbkmoney.threeds.server.domain.root.Message;
 import lombok.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 public class RBKMoneyPreparationResponse extends Message {
 
-    @ToString.Include
     private String providerId;
-    @ToString.Include
     private String serialNum;
     private List<RBKMoneyCardRange> cardRanges;
 
+    @Override
+    public String toString() {
+        return "RBKMoneyPreparationResponse{" +
+                "super='" + super.toString() + '\'' +
+                ", providerId='" + providerId + '\'' +
+                ", serialNum='" + serialNum + '\'' +
+                ", cardRanges='" + Optional.ofNullable(cardRanges).map(List::size).orElse(null) + '\'' +
+                '}';
+    }
 }
