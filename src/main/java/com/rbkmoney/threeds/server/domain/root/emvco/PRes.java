@@ -13,18 +13,17 @@ import com.rbkmoney.threeds.server.serialization.serializer.MessageExtensionSeri
 import lombok.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 @CustomValidation
 public class PRes extends Message {
 
-    @ToString.Include
     private String threeDSServerTransID;
     // todo
     //    @JsonDeserialize(using = CardRangeDataDeserializer.class)
@@ -32,14 +31,22 @@ public class PRes extends Message {
     private List<CardRange> cardRangeData;
     private String dsEndProtocolVersion;
     private String dsStartProtocolVersion;
-    @ToString.Include
     private String dsTransID;
     @JsonDeserialize(using = MessageExtensionDeserializer.class)
     @JsonSerialize(using = MessageExtensionSerializer.class)
     private ListWrapper<MessageExtension> messageExtension;
-    @ToString.Include
     private String serialNum;
 
     private boolean handleRepetitionNeeded = false;
 
+    @Override
+    public String toString() {
+        return "PRes{" +
+                "super='" + super.toString() + '\'' +
+                ", threeDSServerTransID='" + threeDSServerTransID + '\'' +
+                ", dsTransID='" + dsTransID + '\'' +
+                ", serialNum='" + serialNum + '\'' +
+                ", cardRangeData='" + Optional.ofNullable(cardRangeData).map(List::size).orElse(null) + '\'' +
+                '}';
+    }
 }
