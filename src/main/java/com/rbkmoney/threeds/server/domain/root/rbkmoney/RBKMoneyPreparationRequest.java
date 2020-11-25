@@ -16,6 +16,6 @@ import lombok.*;
 public class RBKMoneyPreparationRequest extends Message {
 
     private String providerId;
-    private String serialNum;
+    private String serialNumber;
 
 }
