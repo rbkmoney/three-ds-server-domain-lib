@@ -1,13 +1,15 @@
 package com.rbkmoney.threeds.server.utils;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static com.rbkmoney.threeds.server.utils.AccountNumberUtils.hideAccountNumber;
+import static org.junit.Assert.assertEquals;
 
 public class UtilsTest {
 
     @Test
-    public void name() throws Exception {
-        String hideAccountNumber = AccountNumberUtils.hideAccountNumber("111111748574455457462222");
-        Assert.assertEquals("111111*2222", hideAccountNumber);
+    public void hideAccountNumberTest() throws Exception {
+        String hideAccountNumber = hideAccountNumber("111111748574455457462222");
+        assertEquals("111111*2222", hideAccountNumber);
     }
 }
