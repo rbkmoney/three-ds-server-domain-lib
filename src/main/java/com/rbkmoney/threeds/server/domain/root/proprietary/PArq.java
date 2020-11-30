@@ -27,6 +27,7 @@ import com.rbkmoney.threeds.server.serialization.ListWrapper;
 import com.rbkmoney.threeds.server.serialization.TemporalAccessorWrapper;
 import com.rbkmoney.threeds.server.serialization.deserializer.*;
 import com.rbkmoney.threeds.server.serialization.serializer.*;
+import com.rbkmoney.threeds.server.utils.AccountNumberUtils;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -40,32 +41,24 @@ import java.util.Map;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 @CustomValidation
 public class PArq extends Message {
 
-    @ToString.Include
     private String acctNumber;
     private String cardExpiryDate;
-    @ToString.Include
     @JsonDeserialize(using = DeviceChannelDeserializer.class)
     @JsonSerialize(using = DeviceChannelSerializer.class)
     private EnumWrapper<DeviceChannel> deviceChannel;
-    @ToString.Include
     @JsonDeserialize(using = MessageCategoryDeserializer.class)
     @JsonSerialize(using = MessageCategorySerializer.class)
     private EnumWrapper<MessageCategory> messageCategory;
     private String p_messageVersion;
-    @ToString.Include
     private String threeDSRequestorID;
-    @ToString.Include
     private String threeDSRequestorName;
     private String threeDSRequestorURL;
-    @ToString.Include
     private String acquirerBIN;
-    @ToString.Include
     private String acquirerMerchantID;
     @JsonDeserialize(using = AddressMatchDeserializer.class)
     @JsonSerialize(using = AddressMatchSerializer.class)
@@ -85,46 +78,35 @@ public class PArq extends Message {
     private String browserUserAgent;
     private String cardholderName;
     private DeviceRenderOptionsWrapper deviceRenderOptions;
-    @ToString.Include
     private String email;
     private Phone homePhone;
     private String mcc;
     private String merchantCountryCode;
-    @ToString.Include
     private String merchantName;
     private Phone mobilePhone;
-    @ToString.Include
     private String purchaseAmount;
-    @ToString.Include
     private String purchaseCurrency;
     @JsonDeserialize(using = LocalDateTimeMinuteSecondWrapperDeserializer.class)
     @JsonSerialize(using = LocalDateTimeMinuteSecondWrapperSerializer.class)
     private TemporalAccessorWrapper<LocalDateTime> purchaseDate;
-    @ToString.Include
     private String purchaseExponent;
     @JsonDeserialize(using = LocalDateWrapperDeserializer.class)
     @JsonSerialize(using = LocalDateWrapperSerializer.class)
     private TemporalAccessorWrapper<LocalDate> recurringExpiry;
     private String recurringFrequency;
-    @ToString.Include
     private String sdkAppID;
     private String sdkEncData;
     private Map<String, String> sdkEphemPubKey;
-    @ToString.Include
     private String sdkReferenceNumber;
-    @ToString.Include
     private String sdkTransID;
     @JsonUnwrapped(prefix = "ship")
     private Address shippingAddress;
-    @ToString.Include
     @JsonDeserialize(using = TransactionTypeDeserializer.class)
     @JsonSerialize(using = TransactionTypeSerializer.class)
     private EnumWrapper<TransactionType> transType;
     private Phone workPhone;
-    @ToString.Include
     private String acctID;
     private AccountInfoWrapper acctInfo;
-    @ToString.Include
     @JsonDeserialize(using = AccountTypeDeserializer.class)
     @JsonSerialize(using = AccountTypeSerializer.class)
     private EnumWrapper<AccountType> acctType;
@@ -145,11 +127,8 @@ public class PArq extends Message {
     @JsonSerialize(using = ThreeRIIndSerializer.class)
     private EnumWrapper<ThreeRIInd> threeRIInd;
     private ThreeDSRequestorPriorAuthenticationInfoWrapper threeDSRequestorPriorAuthenticationInfo;
-    @ToString.Include
     private String threeDSServerRefNumber;
-    @ToString.Include
     private String threeDSServerOperatorID;
-    @ToString.Include
     private String threeDSServerTransID;
     private String threeDSServerURL;
     private Object broadInfo;
@@ -174,4 +153,33 @@ public class PArq extends Message {
     @JsonSerialize(using = WhiteListStatusSourceSerializer.class)
     private EnumWrapper<WhiteListStatusSource> whiteListStatusSource;
 
+    @Override
+    public String toString() {
+        return "PArq{" +
+                "super='" + super.toString() + '\'' +
+                "acctNumber='" + AccountNumberUtils.hideAccountNumber(acctNumber) + '\'' +
+                ", deviceChannel=" + deviceChannel +
+                ", messageCategory=" + messageCategory +
+                ", threeDSRequestorID='" + threeDSRequestorID + '\'' +
+                ", threeDSRequestorName='" + threeDSRequestorName + '\'' +
+                ", acquirerBIN='" + acquirerBIN + '\'' +
+                ", acquirerMerchantID='" + acquirerMerchantID + '\'' +
+                ", email='" + email + '\'' +
+                ", merchantName='" + merchantName + '\'' +
+                ", purchaseAmount='" + purchaseAmount + '\'' +
+                ", purchaseCurrency='" + purchaseCurrency + '\'' +
+                ", sdkAppID='" + sdkAppID + '\'' +
+                ", sdkReferenceNumber='" + sdkReferenceNumber + '\'' +
+                ", sdkTransID='" + sdkTransID + '\'' +
+                ", transType=" + transType +
+                ", acctID='" + acctID + '\'' +
+                ", acctType=" + acctType +
+                ", threeDSRequestorAuthenticationInd=" + threeDSRequestorAuthenticationInd +
+                ", threeRIInd=" + threeRIInd +
+                ", threeDSServerRefNumber='" + threeDSServerRefNumber + '\'' +
+                ", threeDSServerOperatorID='" + threeDSServerOperatorID + '\'' +
+                ", threeDSServerTransID='" + threeDSServerTransID + '\'' +
+                ", threeDSCompInd=" + threeDSCompInd +
+                '}';
+    }
 }

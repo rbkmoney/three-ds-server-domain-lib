@@ -26,6 +26,7 @@ import com.rbkmoney.threeds.server.serialization.deserializer.LocalDateDeseriali
 import com.rbkmoney.threeds.server.serialization.deserializer.LocalDateTimeMinuteSecondDeserializer;
 import com.rbkmoney.threeds.server.serialization.serializer.LocalDateSerializer;
 import com.rbkmoney.threeds.server.serialization.serializer.LocalDateTimeMinuteSecondSerializer;
+import com.rbkmoney.threeds.server.utils.AccountNumberUtils;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -37,7 +38,6 @@ import java.util.Map;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ToString(onlyExplicitlyIncluded = true, callSuper = true)
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 public class AReq extends Message {
@@ -49,25 +49,17 @@ public class AReq extends Message {
     private ThreeDSRequestorChallengeInd threeDSRequestorChallengeInd;
     private String threeDSRequestorDecMaxTime;
     private ThreeDSRequestorDecReqInd threeDSRequestorDecReqInd;
-    @ToString.Include
     private String threeDSRequestorID;
-    @ToString.Include
     private String threeDSRequestorName;
     private ThreeDSRequestorPriorAuthenticationInfo threeDSRequestorPriorAuthenticationInfo;
     private String threeDSRequestorURL;
-    @ToString.Include
     private String threeDSServerRefNumber;
-    @ToString.Include
     private String threeDSServerOperatorID;
-    @ToString.Include
     private String threeDSServerTransID;
     private String threeDSServerURL;
     private ThreeRIInd threeRIInd;
-    @ToString.Include
     private AccountType acctType;
-    @ToString.Include
     private String acquirerBIN;
-    @ToString.Include
     private String acquirerMerchantID;
     private AddressMatch addrMatch;
     private Object broadInfo;
@@ -83,13 +75,10 @@ public class AReq extends Message {
     private String browserUserAgent;
     private String cardExpiryDate;
     private AccountInfo acctInfo;
-    @ToString.Include
     private String acctNumber;
-    @ToString.Include
     private String acctID;
     @JsonUnwrapped(prefix = "bill")
     private Address billingAddress;
-    @ToString.Include
     private String email;
     private Phone homePhone;
     private Phone mobilePhone;
@@ -97,13 +86,10 @@ public class AReq extends Message {
     @JsonUnwrapped(prefix = "ship")
     private Address shippingAddress;
     private Phone workPhone;
-    @ToString.Include
     private DeviceChannel deviceChannel;
     private String deviceInfo;
     private DeviceRenderOptions deviceRenderOptions;
-    @ToString.Include
     private String dsReferenceNumber;
-    @ToString.Include
     private String dsTransID;
     private String dsURL;
     private Boolean payTokenInd;
@@ -111,18 +97,13 @@ public class AReq extends Message {
     private String purchaseInstalData;
     private String mcc;
     private String merchantCountryCode;
-    @ToString.Include
     private String merchantName;
     private MerchantRiskIndicator merchantRiskIndicator;
-    @ToString.Include
     private MessageCategory messageCategory;
     private List<MessageExtension> messageExtension;
     private String notificationURL;
-    @ToString.Include
     private String purchaseAmount;
-    @ToString.Include
     private String purchaseCurrency;
-    @ToString.Include
     private String purchaseExponent;
     @JsonDeserialize(using = LocalDateTimeMinuteSecondDeserializer.class)
     @JsonSerialize(using = LocalDateTimeMinuteSecondSerializer.class)
@@ -131,16 +112,12 @@ public class AReq extends Message {
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate recurringExpiry;
     private String recurringFrequency;
-    @ToString.Include
     private String sdkAppID;
     private String sdkEncData;
     private Map<String, String> sdkEphemPubKey;
     private String sdkMaxTimeout;
-    @ToString.Include
     private String sdkReferenceNumber;
-    @ToString.Include
     private String sdkTransID;
-    @ToString.Include
     private TransactionType transType;
     private WhiteListStatus whiteListStatus;
     private WhiteListStatusSource whiteListStatusSource;
@@ -148,4 +125,32 @@ public class AReq extends Message {
     @JsonIgnore
     private LocalDateTime decoupledAuthMaxTime;
 
+    @Override
+    public String toString() {
+        return "AReq{" +
+                "super='" + super.toString() + '\'' +
+                ", threeDSRequestorID='" + threeDSRequestorID + '\'' +
+                ", threeDSRequestorName='" + threeDSRequestorName + '\'' +
+                ", threeDSServerRefNumber='" + threeDSServerRefNumber + '\'' +
+                ", threeDSServerOperatorID='" + threeDSServerOperatorID + '\'' +
+                ", threeDSServerTransID='" + threeDSServerTransID + '\'' +
+                ", acctType=" + acctType +
+                ", acquirerBIN='" + acquirerBIN + '\'' +
+                ", acquirerMerchantID='" + acquirerMerchantID + '\'' +
+                ", acctNumber='" + AccountNumberUtils.hideAccountNumber(acctNumber) + '\'' +
+                ", acctID='" + acctID + '\'' +
+                ", email='" + email + '\'' +
+                ", deviceChannel=" + deviceChannel +
+                ", dsReferenceNumber='" + dsReferenceNumber + '\'' +
+                ", dsTransID='" + dsTransID + '\'' +
+                ", merchantName='" + merchantName + '\'' +
+                ", messageCategory=" + messageCategory +
+                ", purchaseAmount='" + purchaseAmount + '\'' +
+                ", purchaseCurrency='" + purchaseCurrency + '\'' +
+                ", sdkAppID='" + sdkAppID + '\'' +
+                ", sdkReferenceNumber='" + sdkReferenceNumber + '\'' +
+                ", sdkTransID='" + sdkTransID + '\'' +
+                ", transType=" + transType +
+                '}';
+    }
 }

@@ -40,8 +40,6 @@ public class Erro extends Message {
     private String sdkTransID;
 
     @JsonIgnore
-    private boolean handleRepetitionNeeded = false;
-    @JsonIgnore
     private boolean notifyDsAboutError = true;
 
 }
