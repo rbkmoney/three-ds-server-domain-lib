@@ -40,6 +40,7 @@ public class Erro extends Message {
     private String sdkTransID;
 
     @JsonIgnore
+    @Builder.Default
     private boolean notifyDsAboutError = true;
 
 }

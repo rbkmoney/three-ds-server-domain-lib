@@ -10,7 +10,6 @@ import com.rbkmoney.threeds.server.domain.account.AccountType;
 import com.rbkmoney.threeds.server.domain.address.AddressMatch;
 import com.rbkmoney.threeds.server.domain.browser.BrowserColorDepth;
 import com.rbkmoney.threeds.server.domain.device.DeviceChannel;
-import com.rbkmoney.threeds.server.domain.device.DeviceRenderOptionsWrapper;
 import com.rbkmoney.threeds.server.domain.merchant.MerchantRiskIndicatorWrapper;
 import com.rbkmoney.threeds.server.domain.message.MessageCategory;
 import com.rbkmoney.threeds.server.domain.message.MessageExtension;
@@ -32,7 +31,6 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -99,7 +97,6 @@ public class RBKMoneyAuthenticationRequest extends Message {
     @JsonDeserialize(using = DeviceChannelDeserializer.class)
     @JsonSerialize(using = DeviceChannelSerializer.class)
     private EnumWrapper<DeviceChannel> deviceChannel;
-    private DeviceRenderOptionsWrapper deviceRenderOptions;
     private Boolean payTokenInd;
     @JsonDeserialize(using = PayTokenSourceDeserializer.class)
     @JsonSerialize(using = PayTokenSourceSerializer.class)
@@ -126,12 +123,6 @@ public class RBKMoneyAuthenticationRequest extends Message {
     @JsonSerialize(using = LocalDateWrapperSerializer.class)
     private TemporalAccessorWrapper<LocalDate> recurringExpiry;
     private String recurringFrequency;
-    private String sdkAppID;
-    private String sdkEncData;
-    private Map<String, String> sdkEphemPubKey;
-    private String sdkMaxTimeout;
-    private String sdkReferenceNumber;
-    private String sdkTransID;
     @JsonDeserialize(using = TransactionTypeDeserializer.class)
     @JsonSerialize(using = TransactionTypeSerializer.class)
     private EnumWrapper<TransactionType> transType;
@@ -155,9 +146,6 @@ public class RBKMoneyAuthenticationRequest extends Message {
                 ", merchantName='" + merchantName + '\'' +
                 ", purchaseAmount='" + purchaseAmount + '\'' +
                 ", purchaseCurrency='" + purchaseCurrency + '\'' +
-                ", sdkAppID='" + sdkAppID + '\'' +
-                ", sdkReferenceNumber='" + sdkReferenceNumber + '\'' +
-                ", sdkTransID='" + sdkTransID + '\'' +
                 ", transType=" + transType +
                 ", acctID='" + acctID + '\'' +
                 ", acctType=" + acctType +
