@@ -8,10 +8,10 @@ import lombok.*;
 @Data
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
-public class ThreeDSMethod {
+public class ThreeDsMethodRequest {
 
-    private ThreeDSMethodData threeDSMethodData;
+    private ThreeDsMethodData threeDsMethodData;
     @ToString.Exclude
-    private String threeDSMethodURL;
+    private String threeDsMethodUrl;
 
 }

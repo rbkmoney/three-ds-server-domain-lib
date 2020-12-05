@@ -10,13 +10,13 @@ import lombok.*;
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
 public class ThreeDsVersion {
 
-    private String threeDSServerTransID;
+    private String threeDsServerTransId;
     private String dsProviderId;
     private String acsStartProtocolVersion;
     private String acsEndProtocolVersion;
     private String dsStartProtocolVersion;
     private String dsEndProtocolVersion;
     @ToString.Exclude
-    private String threeDSMethodURL;
+    private String threeDsMethodUrl;
 
 }
