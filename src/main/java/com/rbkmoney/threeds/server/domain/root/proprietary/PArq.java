@@ -137,7 +137,6 @@ public class PArq extends Message {
     @JsonSerialize(using = ThreeDsMethodCompletionIndSerializer.class)
     private EnumWrapper<ThreeDsMethodCompletionInd> threeDSCompInd;
     private String sdkMaxTimeout;
-    private String acsURL;
     private String threeDSRequestorDecMaxTime;
     @JsonDeserialize(using = ThreeDSRequestorDecReqIndDeserializer.class)
     @JsonSerialize(using = ThreeDSRequestorDecReqIndSerializer.class)
