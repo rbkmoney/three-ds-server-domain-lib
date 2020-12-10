@@ -8,7 +8,7 @@ import lombok.*;
 @Data
 @Builder
 @JsonInclude(value = JsonInclude.Include.NON_ABSENT)
-public class ThreeDsVersion {
+public class ThreeDsVersionResponse {
 
     private String threeDsServerTransId;
     private String dsProviderId;
