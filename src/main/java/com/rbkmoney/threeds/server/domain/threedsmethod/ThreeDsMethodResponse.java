@@ -14,6 +14,5 @@ import lombok.NoArgsConstructor;
 public class ThreeDsMethodResponse {
 
     private String htmlThreeDsMethodData;
-    private String threeDsServerTransId;
 
 }
