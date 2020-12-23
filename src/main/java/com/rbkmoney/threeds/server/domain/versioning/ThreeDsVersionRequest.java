@@ -19,7 +19,7 @@ public class ThreeDsVersionRequest {
     @Override
     public String toString() {
         return "ThreeDsVersionRequest{" +
-                "acctNumber='" + AccountNumberUtils.hideAccountNumber(accountNumber) +
+                "acctNumber='" + AccountNumberUtils.hideAccountNumber(accountNumber) + '\'' +
                 '}';
     }
 }
