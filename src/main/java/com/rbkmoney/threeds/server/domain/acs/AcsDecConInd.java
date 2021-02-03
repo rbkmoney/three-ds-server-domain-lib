@@ -31,6 +31,10 @@ public enum AcsDecConInd implements Valuable {
     }
 
     public static AcsDecConInd of(String value) {
+        if (value == null) {
+            return null;
+        }
+
         return stream(AcsDecConInd.values())
                 .filter(a -> a.getValue().equals(value))
                 .findFirst()
