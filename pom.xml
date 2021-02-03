@@ -12,7 +12,7 @@
     <packaging>jar</packaging>
 
     <artifactId>three-ds-server-domain-lib</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <url>https://github.com/rbkmoney/three-ds-server-domain-lib</url>
 
     <licenses>
