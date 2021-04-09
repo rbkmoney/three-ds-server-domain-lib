@@ -14,14 +14,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractListEnumDeserializer<T extends Valuable> extends JsonDeserializer<ListWrapper<EnumWrapper<T>>> {
+public abstract class AbstractListEnumDeserializer<T extends Valuable>
+        extends JsonDeserializer<ListWrapper<EnumWrapper<T>>> {
 
     protected abstract T enumValueOf(String candidate);
 
     protected abstract T[] enumValues();
 
     @Override
-    public ListWrapper<EnumWrapper<T>> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public ListWrapper<EnumWrapper<T>> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
         ObjectCodec oc = jp.getCodec();
         JsonNode node = oc.readTree(jp);
 
@@ -44,7 +45,7 @@ public abstract class AbstractListEnumDeserializer<T extends Valuable> extends J
         }
     }
 
-    private EnumWrapper<T> getEnumElementOfList(ObjectCodec oc, JsonNode node) throws IOException, JsonProcessingException {
+    private EnumWrapper<T> getEnumElementOfList(ObjectCodec oc, JsonNode node) throws IOException {
         if (node.isNull()) {
             return null;
         } else if (node.isTextual()) {

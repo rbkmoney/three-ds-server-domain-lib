@@ -16,8 +16,10 @@ import lombok.*;
 import static com.rbkmoney.threeds.server.utils.AccountNumberUtils.hideAccountNumber;
 
 /**
- * The Card Range Data data element contains information returned in the PRes message to the 3DS Server from the DS that indicates the most
- * recent EMV 3-D Secure version supported by the ACS that hosts that card range. It also may optionally contain the ACS URL for the 3DS
+ * The Card Range Data data element contains information returned in the PRes message
+ * to the 3DS Server from the DS that indicates the most
+ * recent EMV 3-D Secure version supported by the ACS that hosts that card range.
+ * It also may optionally contain the ACS URL for the 3DS
  * Method if supported by the ACS and the DS Start and End Protocol Versions which support the card range.
  */
 @AllArgsConstructor

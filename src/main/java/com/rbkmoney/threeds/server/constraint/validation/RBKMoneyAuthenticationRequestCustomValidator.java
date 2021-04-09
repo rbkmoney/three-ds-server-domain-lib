@@ -8,8 +8,10 @@ import java.util.List;
 
 public class RBKMoneyAuthenticationRequestCustomValidator extends CustomValidator<RBKMoneyAuthenticationRequest> {
 
-    public RBKMoneyAuthenticationRequestCustomValidator(List<ConstraintValidationHandler<RBKMoneyAuthenticationRequest>> constraintValidationHandlers,
-                                                        ValidatorContextEnricherService contextEnricher) {
+    public RBKMoneyAuthenticationRequestCustomValidator(
+            List<ConstraintValidationHandler<RBKMoneyAuthenticationRequest>> constraintValidationHandlers,
+            ValidatorContextEnricherService contextEnricher
+    ) {
         super(constraintValidationHandlers, contextEnricher);
     }
 }

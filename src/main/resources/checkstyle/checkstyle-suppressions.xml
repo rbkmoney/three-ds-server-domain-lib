@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <suppress checks="AbbreviationAsWordInName"
+              files="com[\\/]rbkmoney[\\/]threeds[\\/].*.java"/>
+    <suppress checks="MemberName"
+              files="com[\\/]rbkmoney[\\/]threeds[\\/]server[\\/]domain[\\/]root[\\/]proprietary[\\/].*.java"/>
+    <suppress checks="LineLength"
+              files="DeserializerTest.java"/>
+    <suppress checks="LocalVariableName"
+              files="SerializerTest.java"/>
+</suppressions>

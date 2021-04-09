@@ -10,7 +10,8 @@ import java.io.IOException;
 public abstract class AbstractEnumSerializer<T extends Valuable> extends JsonSerializer<EnumWrapper<T>> {
 
     @Override
-    public void serialize(EnumWrapper<T> enumWrapper, JsonGenerator jsonGenerator, SerializerProvider serializers) throws IOException {
+    public void serialize(EnumWrapper<T> enumWrapper, JsonGenerator jsonGenerator, SerializerProvider serializers)
+            throws IOException {
         String value = enumWrapper.getValue().getValue();
         if (value != null) {
             jsonGenerator.writeString(value);

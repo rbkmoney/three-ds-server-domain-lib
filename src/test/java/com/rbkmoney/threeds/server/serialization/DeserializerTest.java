@@ -46,7 +46,8 @@ public class DeserializerTest {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        Object value = mapper.readValue("{\"acctType\":\"" + actualValue + "\"}", Item.class).getAcctType().getValue().getValue();
+        Object value = mapper.readValue("{\"acctType\":\"" + actualValue + "\"}", Item.class)
+                .getAcctType().getValue().getValue();
         assertEquals(actualValue, value);
     }
 
@@ -54,7 +55,8 @@ public class DeserializerTest {
     public void enumWrapperGarbageTest() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        Object value = mapper.readValue("{\"acctType\":\"" + ACTUAL_GARBAGE_VALUE + "\"}", Item.class).getAcctType().getGarbageValue();
+        Object value = mapper.readValue("{\"acctType\":\"" + ACTUAL_GARBAGE_VALUE + "\"}", Item.class)
+                .getAcctType().getGarbageValue();
         assertEquals(ACTUAL_GARBAGE_VALUE, value);
     }
 

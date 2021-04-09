@@ -19,7 +19,9 @@ public enum ConstraintType {
 
     public static ConstraintType of(String value) {
         for (ConstraintType t : ConstraintType.values()) {
-            if (value.equals(t.value)) return t;
+            if (value.equals(t.value)) {
+                return t;
+            }
         }
 
         throw new IllegalArgumentException("Unknown constraint type: " + value);

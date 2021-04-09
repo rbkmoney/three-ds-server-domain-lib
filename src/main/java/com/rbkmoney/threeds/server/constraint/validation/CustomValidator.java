@@ -29,7 +29,10 @@ public class CustomValidator<T> implements ConstraintValidator<CustomValidation,
                 .orElse(ConstraintValidationResult.success());
 
         if (!constraintValidationResult.isValid()) {
-            contextEnricher.enrich(ctx, constraintValidationResult.getConstraintType(), constraintValidationResult.getFieldName());
+            contextEnricher.enrich(
+                    ctx,
+                    constraintValidationResult.getConstraintType(),
+                    constraintValidationResult.getFieldName());
         }
 
         return constraintValidationResult.isValid();

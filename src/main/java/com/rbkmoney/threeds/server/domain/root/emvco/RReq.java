@@ -1,5 +1,6 @@
 package com.rbkmoney.threeds.server.domain.root.emvco;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -15,6 +16,7 @@ import com.rbkmoney.threeds.server.domain.transaction.TransactionStatus;
 import com.rbkmoney.threeds.server.domain.transaction.TransactionStatusReason;
 import com.rbkmoney.threeds.server.domain.whitelist.WhiteListStatus;
 import com.rbkmoney.threeds.server.domain.whitelist.WhiteListStatusSource;
+import com.rbkmoney.threeds.server.dto.ChallengeFlowTransactionInfo;
 import com.rbkmoney.threeds.server.serialization.EnumWrapper;
 import com.rbkmoney.threeds.server.serialization.ListWrapper;
 import com.rbkmoney.threeds.server.serialization.deserializer.*;
@@ -75,5 +77,8 @@ public class RReq extends Message {
     @JsonDeserialize(using = WhiteListStatusSourceDeserializer.class)
     @JsonSerialize(using = WhiteListStatusSourceSerializer.class)
     private EnumWrapper<WhiteListStatusSource> whiteListStatusSource;
+
+    @JsonIgnore
+    private ChallengeFlowTransactionInfo challengeFlowTransactionInfo;
 
 }

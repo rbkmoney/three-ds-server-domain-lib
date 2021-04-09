@@ -8,10 +8,15 @@ import com.rbkmoney.threeds.server.domain.Valuable;
 import java.io.IOException;
 import java.util.List;
 
-public abstract class AbstractListEnumSerializer<T extends Valuable> extends JsonSerializer<ListWrapper<EnumWrapper<T>>> {
+public abstract class AbstractListEnumSerializer<T extends Valuable>
+        extends JsonSerializer<ListWrapper<EnumWrapper<T>>> {
 
     @Override
-    public void serialize(ListWrapper<EnumWrapper<T>> listWrapper, JsonGenerator jsonGenerator, SerializerProvider serializers) throws IOException {
+    public void serialize(
+            ListWrapper<EnumWrapper<T>> listWrapper,
+            JsonGenerator jsonGenerator,
+            SerializerProvider serializers
+    ) throws IOException {
         List<EnumWrapper<T>> values = listWrapper.getValue();
         if (values != null) {
             jsonGenerator.writeStartArray(values.size());
