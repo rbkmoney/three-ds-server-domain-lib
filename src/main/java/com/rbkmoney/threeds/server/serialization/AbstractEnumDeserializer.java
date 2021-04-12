@@ -18,7 +18,7 @@ public abstract class AbstractEnumDeserializer<T extends Valuable> extends JsonD
     protected abstract T[] enumValues();
 
     @Override
-    public EnumWrapper<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public EnumWrapper<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
         ObjectCodec oc = jp.getCodec();
         JsonNode node = oc.readTree(jp);
 

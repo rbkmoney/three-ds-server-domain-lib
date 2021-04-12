@@ -14,12 +14,13 @@ import java.time.DateTimeException;
 import java.time.temporal.TemporalAccessor;
 
 @RequiredArgsConstructor
-public abstract class AbstractTemporalAccessorDeserializer<T extends TemporalAccessor> extends JsonDeserializer<TemporalAccessorWrapper<T>> {
+public abstract class AbstractTemporalAccessorDeserializer<T extends TemporalAccessor>
+        extends JsonDeserializer<TemporalAccessorWrapper<T>> {
 
     protected abstract T parse(String candidate);
 
     @Override
-    public TemporalAccessorWrapper<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public TemporalAccessorWrapper<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
         ObjectCodec oc = jp.getCodec();
         JsonNode node = oc.readTree(jp);
 

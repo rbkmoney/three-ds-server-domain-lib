@@ -17,7 +17,7 @@ public abstract class AbstractListDeserializer<T> extends JsonDeserializer<ListW
     protected abstract Class<T> getClassType();
 
     @Override
-    public ListWrapper<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public ListWrapper<T> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
         ObjectCodec oc = jp.getCodec();
         JsonNode node = oc.readTree(jp);
 

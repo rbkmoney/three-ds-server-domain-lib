@@ -11,7 +11,8 @@ import java.util.List;
 public abstract class AbstractListSerializer<T> extends JsonSerializer<ListWrapper<T>> {
 
     @Override
-    public void serialize(ListWrapper<T> listWrapper, JsonGenerator jsonGenerator, SerializerProvider serializers) throws IOException {
+    public void serialize(ListWrapper<T> listWrapper, JsonGenerator jsonGenerator, SerializerProvider serializers)
+            throws IOException {
         ObjectMapper objectMapper = (ObjectMapper) jsonGenerator.getCodec();
 
         List<T> values = listWrapper.getValue();
